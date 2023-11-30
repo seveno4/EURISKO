@@ -23,6 +23,8 @@ cd /home/foo/EURISKO/
 (Eurisko)
 ```
 
+Surprisingly, it includes bitmap graphics support (made for the Xerox Alto!) that shows information about the current state of the system. I was able to port the code over to Medley which you can enable by running `(Snazzy)` after loading.  
+
 Eurisko accepts an argument that sets how verbose the output should be. `(Eurisko 0)` for no output and `(Eurisko 100)` everything. The default value is 67.  
 
 You can interrupt a Medley process at anytime with `CTRL-D`  
