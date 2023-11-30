@@ -1,12 +1,12 @@
 (DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
 
-(FILECREATED "29-Nov-2023 14:53:58" {DSK}<home>seveno4>src>il>EUR.;3 125327 
+(FILECREATED "30-Nov-2023 06:56:49" {DSK}<home>seveno4>src>EURISKO>EUR.;3 125278 
 
       :EDIT-BY "seveno4"
 
-      :CHANGES-TO (FNS START)
+      :CHANGES-TO (FNS IsAlto)
 
-      :PREVIOUS-DATE "29-Nov-2023 14:48:01" {DSK}<home>seveno4>src>il>EUR.;2)
+      :PREVIOUS-DATE "30-Nov-2023 06:53:35" {DSK}<home>seveno4>src>EURISKO>EUR.;2)
 
 
 (PRETTYCOMPRINT EURCOMS)
@@ -650,10 +650,7 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
        (T NIL])
 
 (Eurisko
-  [LAMBDA (Verbo EternalFlg)                             (* ; "Edited 29-Nov-2023 10:40 by seveno4")
-    (if [OR (NOT (BOUNDP 'InfoW))
-            (NOT (OPENWP 'InfoW]
-        then (Snazzy))
+  [LAMBDA (Verbo EternalFlg)                             (* ; "Edited 30-Nov-2023 06:50 by seveno4")
     (COND
        ((FIXP Verbo)
         (SETQ Verbosity Verbo))
@@ -1325,8 +1322,9 @@ February, 1981
         (MEMB S (Generalizations s])
 
 (IsAlto
-  [LAMBDA NIL                                            (* ; "Edited 29-Nov-2023 07:35 by seveno4")
-    (OPENWP InfoW])
+  [LAMBDA NIL                                            (* ; "Edited 30-Nov-2023 06:56 by seveno4")
+    (AND (BOUNDP 'InfoW)
+         (OPENWP InfoW])
 
 (IsSubsetOf
   [LAMBDA (L M)                                              (* edited%: " 9-APR-81 15:26")
@@ -3100,66 +3098,66 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
 (ADDTOVAR LAMA SmartPACK* CPRIN1)
 )
 (DECLARE%: DONTCOPY
-  (FILEMAP (NIL (14110 123975 (APPLYEVAL 14120 . 14247) (AddInv 14249 . 14672) (AddNN 14674 . 14811) (
-AddPropL 14813 . 15161) (Alg 15163 . 15393) (AllPairs 15395 . 15786) (ApplicArgs 15788 . 15904) (
-ApplicGenArgs 15906 . 16027) (ApplicGenBuild 16029 . 16150) (ApplicGenInit 16152 . 16271) (Apply-to-u 
-16273 . 16394) (ApplyAlg 16396 . 16531) (ApplyDefn 16533 . 16670) (ApplyRule 16672 . 17344) (Average 
-17346 . 17488) (AverageWorths 17490 . 17734) (BestChoose 17736 . 18014) (BestSubset 18016 . 18327) (
-CPRIN1 18329 . 18637) (CacheExamples 18639 . 18820) (Certainty 18822 . 19134) (Check2AfterEditp 19136
- . 19478) (CheckAfterEditp 19480 . 19973) (CheckElim 19975 . 20187) (CheckTheValues 20189 . 20409) (
-Comp 20411 . 20714) (ConsNN 20716 . 20861) (CreateUnit 20863 . 22287) (CurSup 22289 . 22411) (
-CycleThruAgenda 22413 . 22905) (DSPBOLD 22907 . 23189) (Date2 23191 . 23505) (
-DecrementCreditAssignment 23507 . 23659) (DefineIfSlot 23661 . 23880) (DefineSlot 23882 . 24455) (Defn
- 24457 . 24804) (DirectApplics 24806 . 25047) (Divides 25049 . 25177) (DoesIntersect 25179 . 25355) (
-DreplaceGet 25357 . 25698) (DwimUnionProp 25700 . 26676) (EU 26678 . 27684) (EVERY2 27686 . 27971) (
-EqualToWithinSubst 27973 . 28332) (Eurisko 28334 . 28873) (Examples 28875 . 29260) (ExtractInput 29262
- . 29380) (ExtractOutput 29382 . 29502) (ExtractPriority 29504 . 29627) (ExtractReasons 29629 . 29754)
- (ExtractSlotName 29756 . 29881) (ExtractUnitName 29883 . 30008) (FavorFirst 30010 . 30189) (FirstTwo 
-30191 . 30330) (Flatten 30332 . 30539) (FractionOf 30541 . 30958) (GatherExamples 30960 . 31357) (
-GenArgs 31359 . 31474) (GenBuild 31476 . 31591) (GenInit 31593 . 31706) (Generalizations 31708 . 32068
-) (Generalize1LispExpr 32070 . 33320) (Generalize1LispFn 33322 . 33463) (Generalize1LispPred 33465 . 
-33608) (GeneralizeBit 33610 . 33729) (GeneralizeCompiledLispCode 33731 . 33858) (GeneralizeDataType 
-33860 . 34338) (GeneralizeDottedPair 34340 . 34461) (GeneralizeIOPair 34463 . 34803) (GeneralizeLispFn
- 34805 . 35711) (GeneralizeLispPred 35713 . 36625) (GeneralizeList 36627 . 37423) (GeneralizeNIL 37425
- . 37616) (GeneralizeNumber 37618 . 38571) (GeneralizeSlot 38573 . 39043) (GeneralizeText 39045 . 
-39841) (GeneralizeUnit 39843 . 40313) (GetABag 40315 . 40434) (GetAList 40436 . 40693) (GetAOPair 
-40695 . 40826) (GetAOSet 40828 . 40963) (GetASet 40965 . 41099) (GetAStruc 41101 . 41349) (GoodChoose 
-41351 . 41645) (GoodSubset 41647 . 41784) (Half 41786 . 41904) (HasHighWorth 41906 . 42081) (ISQRT 
-42083 . 42200) (IndirectApplics 42202 . 42455) (InitialCheckInv 42457 . 45044) (InitialElimSlots 45046
- . 45358) (InitializeCreditAssignment 45360 . 45501) (InitializeEurisko 45503 . 48787) (InsideOf 48789
- . 49057) (Instances 49059 . 49290) (Interestingness 49292 . 50343) (Interp1 50345 . 50739) (Interp2 
-50741 . 52249) (Interp3 52251 . 54003) (Interrupts 54005 . 55026) (IsAKindOf 55028 . 55184) (IsAlto 
-55186 . 55314) (IsSubsetOf 55316 . 55493) (KillSlot 55495 . 56389) (KillUnit 56391 . 57003) (
-KnownApplic 57005 . 57220) (LEQNN 57222 . 57382) (LessWorth 57384 . 57628) (ListifyIfNec 57630 . 57775
-) (ListsStarting 57777 . 58064) (ListsStartingAux 58066 . 58356) (MAP2EVERY 58358 . 58797) (MAPAPPEND 
-58799 . 59050) (MAXIMUM 59052 . 60052) (MAXIMUM2 60054 . 60949) (Map&Print 60951 . 61132) (MapApplics 
-61134 . 63126) (MapExamples 63128 . 65142) (MapUnion 65144 . 65674) (MergeProps 65676 . 67045) (
-MergeTasks 67047 . 69709) (MoreSpecific 69711 . 70563) (MostSpecific 70565 . 70702) (MyTime 70704 . 
-70972) (NU 70974 . 72527) (NUnitp 72529 . 72648) (NearnessTo 72650 . 72987) (NewNam 72989 . 73297) (
-NoRepeatsIn 73299 . 73566) (OKBinPreds 73568 . 74410) (OrderTasks 74412 . 74560) (PRINBOL 74562 . 
-75218) (PRINDEN 75220 . 75346) (PRINTASK 75348 . 76425) (PU 76427 . 77191) (PU2 77193 . 82516) (
-Percentify 82518 . 82685) (PunishSeverely 82687 . 82853) (Quoted 82855 . 83016) (REM1PROP 83018 . 
-83303) (RandomChoose 83305 . 83570) (RandomP 83572 . 83694) (RandomPair 83696 . 83835) (RandomSubset 
-83837 . 84091) (RandomSubst 84093 . 84397) (RandomSubst* 84399 . 84751) (RepeatsIn 84753 . 85016) (
-ReportOn 85018 . 85969) (ResetPri 85971 . 86340) (RuleTakingTooLong 86342 . 86878) (RunAlg 86880 . 
-87944) (RunDefn 87946 . 89013) (SOME1 89015 . 89227) (SOS 89229 . 89620) (SQUARE 89622 . 89738) (START
- 89740 . 91075) (SelfIntersect 91077 . 91207) (SetDiff 91209 . 91572) (SetDifference 91574 . 91945) (
-SetIntersect 91947 . 92126) (SetUnion 92128 . 92279) (Shorten 92281 . 92402) (SibSlots 92404 . 92557) 
-(Sibs 92559 . 92701) (SlotNames 92703 . 92911) (SlotSubst 92913 . 93175) (Slotp 93177 . 93362) (
-SmartPACK* 93364 . 94511) (Snazzy 94513 . 96696) (SnazzyAgenda 96698 . 97395) (SnazzyConcept 97397 . 
-98012) (SnazzyHeuristic 98014 . 98595) (SnazzyTask 98597 . 100199) (SomeOPair 100201 . 100681) (
-SomePair 100683 . 100862) (SomeUneliminated 100864 . 101354) (SortByWorths 101356 . 101486) (
-Specializations 101488 . 101848) (Specialize1LispExpr 101850 . 103100) (Specialize1LispFn 103102 . 
-103243) (Specialize1LispPred 103245 . 103388) (SpecializeBit 103390 . 103509) (
-SpecializeCompiledLispCode 103511 . 103638) (SpecializeDataType 103640 . 104118) (SpecializeDottedPair
- 104120 . 104241) (SpecializeIOPair 104243 . 104583) (SpecializeLispFn 104585 . 105491) (
-SpecializeLispPred 105493 . 106405) (SpecializeList 106407 . 107067) (SpecializeNIL 107069 . 107260) (
-SpecializeNumber 107262 . 107857) (SpecializeSlot 107859 . 108329) (SpecializeText 108331 . 108991) (
-SpecializeUnit 108993 . 109463) (StrongUnsaveDef 109465 . 109666) (TakingTooLong 109668 . 110125) (
-TakingTooMuchSpace 110127 . 110525) (TheFirstOf 110527 . 110638) (TheNumberOf 110640 . 110954) (
-TheSecondOf 110956 . 111068) (TinyReward 111070 . 111208) (TrueIfItExists 111210 . 112079) (UnGet 
-112081 . 114556) (UnionProp 114558 . 114766) (UnionPropL 114768 . 114977) (Unitp 114979 . 115272) (
-WaxOn 115274 . 115989) (WholeTask 115991 . 116475) (WorkOnTask 116477 . 120450) (WorkOnUnit 120452 . 
-121642) (WorthWorkingOn 121644 . 121803) (XeqIfItExists 121805 . 123310) (YesNo 123312 . 123584) (
-ZeroRecords 123586 . 123973)))))
+  (FILEMAP (NIL (14121 123926 (APPLYEVAL 14131 . 14258) (AddInv 14260 . 14683) (AddNN 14685 . 14822) (
+AddPropL 14824 . 15172) (Alg 15174 . 15404) (AllPairs 15406 . 15797) (ApplicArgs 15799 . 15915) (
+ApplicGenArgs 15917 . 16038) (ApplicGenBuild 16040 . 16161) (ApplicGenInit 16163 . 16282) (Apply-to-u 
+16284 . 16405) (ApplyAlg 16407 . 16542) (ApplyDefn 16544 . 16681) (ApplyRule 16683 . 17355) (Average 
+17357 . 17499) (AverageWorths 17501 . 17745) (BestChoose 17747 . 18025) (BestSubset 18027 . 18338) (
+CPRIN1 18340 . 18648) (CacheExamples 18650 . 18831) (Certainty 18833 . 19145) (Check2AfterEditp 19147
+ . 19489) (CheckAfterEditp 19491 . 19984) (CheckElim 19986 . 20198) (CheckTheValues 20200 . 20420) (
+Comp 20422 . 20725) (ConsNN 20727 . 20872) (CreateUnit 20874 . 22298) (CurSup 22300 . 22422) (
+CycleThruAgenda 22424 . 22916) (DSPBOLD 22918 . 23200) (Date2 23202 . 23516) (
+DecrementCreditAssignment 23518 . 23670) (DefineIfSlot 23672 . 23891) (DefineSlot 23893 . 24466) (Defn
+ 24468 . 24815) (DirectApplics 24817 . 25058) (Divides 25060 . 25188) (DoesIntersect 25190 . 25366) (
+DreplaceGet 25368 . 25709) (DwimUnionProp 25711 . 26687) (EU 26689 . 27695) (EVERY2 27697 . 27982) (
+EqualToWithinSubst 27984 . 28343) (Eurisko 28345 . 28794) (Examples 28796 . 29181) (ExtractInput 29183
+ . 29301) (ExtractOutput 29303 . 29423) (ExtractPriority 29425 . 29548) (ExtractReasons 29550 . 29675)
+ (ExtractSlotName 29677 . 29802) (ExtractUnitName 29804 . 29929) (FavorFirst 29931 . 30110) (FirstTwo 
+30112 . 30251) (Flatten 30253 . 30460) (FractionOf 30462 . 30879) (GatherExamples 30881 . 31278) (
+GenArgs 31280 . 31395) (GenBuild 31397 . 31512) (GenInit 31514 . 31627) (Generalizations 31629 . 31989
+) (Generalize1LispExpr 31991 . 33241) (Generalize1LispFn 33243 . 33384) (Generalize1LispPred 33386 . 
+33529) (GeneralizeBit 33531 . 33650) (GeneralizeCompiledLispCode 33652 . 33779) (GeneralizeDataType 
+33781 . 34259) (GeneralizeDottedPair 34261 . 34382) (GeneralizeIOPair 34384 . 34724) (GeneralizeLispFn
+ 34726 . 35632) (GeneralizeLispPred 35634 . 36546) (GeneralizeList 36548 . 37344) (GeneralizeNIL 37346
+ . 37537) (GeneralizeNumber 37539 . 38492) (GeneralizeSlot 38494 . 38964) (GeneralizeText 38966 . 
+39762) (GeneralizeUnit 39764 . 40234) (GetABag 40236 . 40355) (GetAList 40357 . 40614) (GetAOPair 
+40616 . 40747) (GetAOSet 40749 . 40884) (GetASet 40886 . 41020) (GetAStruc 41022 . 41270) (GoodChoose 
+41272 . 41566) (GoodSubset 41568 . 41705) (Half 41707 . 41825) (HasHighWorth 41827 . 42002) (ISQRT 
+42004 . 42121) (IndirectApplics 42123 . 42376) (InitialCheckInv 42378 . 44965) (InitialElimSlots 44967
+ . 45279) (InitializeCreditAssignment 45281 . 45422) (InitializeEurisko 45424 . 48708) (InsideOf 48710
+ . 48978) (Instances 48980 . 49211) (Interestingness 49213 . 50264) (Interp1 50266 . 50660) (Interp2 
+50662 . 52170) (Interp3 52172 . 53924) (Interrupts 53926 . 54947) (IsAKindOf 54949 . 55105) (IsAlto 
+55107 . 55265) (IsSubsetOf 55267 . 55444) (KillSlot 55446 . 56340) (KillUnit 56342 . 56954) (
+KnownApplic 56956 . 57171) (LEQNN 57173 . 57333) (LessWorth 57335 . 57579) (ListifyIfNec 57581 . 57726
+) (ListsStarting 57728 . 58015) (ListsStartingAux 58017 . 58307) (MAP2EVERY 58309 . 58748) (MAPAPPEND 
+58750 . 59001) (MAXIMUM 59003 . 60003) (MAXIMUM2 60005 . 60900) (Map&Print 60902 . 61083) (MapApplics 
+61085 . 63077) (MapExamples 63079 . 65093) (MapUnion 65095 . 65625) (MergeProps 65627 . 66996) (
+MergeTasks 66998 . 69660) (MoreSpecific 69662 . 70514) (MostSpecific 70516 . 70653) (MyTime 70655 . 
+70923) (NU 70925 . 72478) (NUnitp 72480 . 72599) (NearnessTo 72601 . 72938) (NewNam 72940 . 73248) (
+NoRepeatsIn 73250 . 73517) (OKBinPreds 73519 . 74361) (OrderTasks 74363 . 74511) (PRINBOL 74513 . 
+75169) (PRINDEN 75171 . 75297) (PRINTASK 75299 . 76376) (PU 76378 . 77142) (PU2 77144 . 82467) (
+Percentify 82469 . 82636) (PunishSeverely 82638 . 82804) (Quoted 82806 . 82967) (REM1PROP 82969 . 
+83254) (RandomChoose 83256 . 83521) (RandomP 83523 . 83645) (RandomPair 83647 . 83786) (RandomSubset 
+83788 . 84042) (RandomSubst 84044 . 84348) (RandomSubst* 84350 . 84702) (RepeatsIn 84704 . 84967) (
+ReportOn 84969 . 85920) (ResetPri 85922 . 86291) (RuleTakingTooLong 86293 . 86829) (RunAlg 86831 . 
+87895) (RunDefn 87897 . 88964) (SOME1 88966 . 89178) (SOS 89180 . 89571) (SQUARE 89573 . 89689) (START
+ 89691 . 91026) (SelfIntersect 91028 . 91158) (SetDiff 91160 . 91523) (SetDifference 91525 . 91896) (
+SetIntersect 91898 . 92077) (SetUnion 92079 . 92230) (Shorten 92232 . 92353) (SibSlots 92355 . 92508) 
+(Sibs 92510 . 92652) (SlotNames 92654 . 92862) (SlotSubst 92864 . 93126) (Slotp 93128 . 93313) (
+SmartPACK* 93315 . 94462) (Snazzy 94464 . 96647) (SnazzyAgenda 96649 . 97346) (SnazzyConcept 97348 . 
+97963) (SnazzyHeuristic 97965 . 98546) (SnazzyTask 98548 . 100150) (SomeOPair 100152 . 100632) (
+SomePair 100634 . 100813) (SomeUneliminated 100815 . 101305) (SortByWorths 101307 . 101437) (
+Specializations 101439 . 101799) (Specialize1LispExpr 101801 . 103051) (Specialize1LispFn 103053 . 
+103194) (Specialize1LispPred 103196 . 103339) (SpecializeBit 103341 . 103460) (
+SpecializeCompiledLispCode 103462 . 103589) (SpecializeDataType 103591 . 104069) (SpecializeDottedPair
+ 104071 . 104192) (SpecializeIOPair 104194 . 104534) (SpecializeLispFn 104536 . 105442) (
+SpecializeLispPred 105444 . 106356) (SpecializeList 106358 . 107018) (SpecializeNIL 107020 . 107211) (
+SpecializeNumber 107213 . 107808) (SpecializeSlot 107810 . 108280) (SpecializeText 108282 . 108942) (
+SpecializeUnit 108944 . 109414) (StrongUnsaveDef 109416 . 109617) (TakingTooLong 109619 . 110076) (
+TakingTooMuchSpace 110078 . 110476) (TheFirstOf 110478 . 110589) (TheNumberOf 110591 . 110905) (
+TheSecondOf 110907 . 111019) (TinyReward 111021 . 111159) (TrueIfItExists 111161 . 112030) (UnGet 
+112032 . 114507) (UnionProp 114509 . 114717) (UnionPropL 114719 . 114928) (Unitp 114930 . 115223) (
+WaxOn 115225 . 115940) (WholeTask 115942 . 116426) (WorkOnTask 116428 . 120401) (WorkOnUnit 120403 . 
+121593) (WorthWorkingOn 121595 . 121754) (XeqIfItExists 121756 . 123261) (YesNo 123263 . 123535) (
+ZeroRecords 123537 . 123924)))))
 STOP
