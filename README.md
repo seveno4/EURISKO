@@ -1,6 +1,6 @@
 # EURISKO
 
-NOTE: Due to a bug in Medley's PROP command I had to split out Units into a new file. I'll add them back together when the bug is fixed.
+Started work on a Common Lisp [port](https://github.com/seveno4/EURISKO/tree/cl)
 
 With the release of Doug Lenat's [archive](https://www.saildart.org/DBL) on Saildart, [White_Flame](https://white-flame.com/am-eurisko.html) and [aindilis](https://frdcsa.org/~andrewdo/WebWiki/Landing.html) discovered the source code of both AM and EURISKO. After some work I got EURISKO up and running on Medley Interlisp.
 
