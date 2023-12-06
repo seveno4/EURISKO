@@ -1,24 +1,22 @@
 (DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
 
-(FILECREATED "30-Nov-2023 06:56:49" {DSK}<home>seveno4>src>EURISKO>EUR.;3 125278 
+(FILECREATED " 6-Dec-2023 06:52:34" {DSK}<home>seveno4>src>il>EURISKO>EUR.;1 126548 
 
       :EDIT-BY "seveno4"
 
-      :CHANGES-TO (FNS IsAlto)
-
-      :PREVIOUS-DATE "30-Nov-2023 06:53:35" {DSK}<home>seveno4>src>EURISKO>EUR.;2)
+      :PREVIOUS-DATE "30-Nov-2023 06:56:49" {DSK}<home>seveno4>src>il>EURISKO>EUR.;1)
 
 
 (PRETTYCOMPRINT EURCOMS)
 
 (RPAQQ EURCOMS
-       [(VARS * EURVARS)
+       ((VARS * EURVARS)
         (FNS * EURFNS)
         (P (LOAD 'EURUNITS))
-        [P (ADVISE 'EDITP 'BEFORE '(OR (STKPOS 'EU)
+        (P (ADVISE 'EDITP 'BEFORE '(OR (STKPOS 'EU)
                                        (PRIN1 
                                         "
-WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
+WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "))))
         (GLOBALVARS AbortTask? AddedSome Agenda AreUnits CRLF CSlot CSlotSibs CTask Conjectures 
                CreditTo Creditors CurPri CurReasons CurSlot CurSup CurUnit CurVal DeletedUnits 
                ESYSPROPS EditpTemp FailureList GCredit GSlot HaveGenl HaveSpec HeuristicAgenda Interp
@@ -29,14 +27,15 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
                UndoKill Units UnusedSlots UsedSlots UserImpatience Verbosity WarnSlots LAPFLG STRF 
                SVFLG LCFIL LSTFIL conjec cprintmp)
         (P (SETQ SYSPROPS (UNION ESYSPROPS SYSPROPS)))
-        [P (AND (NULL (GETD 'OldPACK*))
+        (P (AND (NULL (GETD 'OldPACK*))
                 (PUTD 'OldPACK* (GETD 'PACK*))
-                (PUTD 'PACK* (GETD 'SmartPACK*]
+                (PUTD 'PACK* (GETD 'SmartPACK*))))
         (P (SETQ TTY T))
         (P (CPRIN1 0 CRLF CRLF "Type (Eurisko) when you are ready to start." CRLF CRLF))
         (DECLARE%: DONTEVAL@LOAD DOEVAL@COMPILE DONTCOPY COMPILERVARS (ADDVARS (NLAMA EU)
                                                                              (NLAML)
-                                                                             (LAMA SmartPACK* CPRIN1])
+                                                                             (LAMA SmartPACK* CPRIN1)
+                                                                             ))))
 
 (RPAQQ EURVARS
        (Agenda CRLF Conjectures DeletedUnits ESYSPROPS FailureList GFNS Interp MinPri MoveDefns 
@@ -234,27 +233,27 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
 (DEFINEQ
 
 (APPLYEVAL
-  [LAMBDA (F ARGL)                                           (* edited%: " 4-MAR-81 12:43")
-    (EVAL (CONS F ARGL])
+  (LAMBDA (F ARGL)                                           (* edited%: " 4-MAR-81 12:43")
+    (EVAL (CONS F ARGL))))
 
 (AddInv
-  [LAMBDA (un)                                               (* edited%: "28-APR-81 01:49")
+  (LAMBDA (un)                                               (* edited%: "28-APR-81 01:49")
     (MAP2C (GETPROPLIST un)
            (CDR (GETPROPLIST un))
-           [FUNCTION (LAMBDA (pr val inv)
+           (FUNCTION (LAMBDA (pr val inv)
                        (AND (SETQ inv (CAR (Inverse pr)))
                             (MAPC val (FUNCTION (LAMBDA (e)
-                                                  (DwimUnionProp e inv un]
+                                                  (DwimUnionProp e inv un)))))))
            'CDDR)
-    un])
+    un))
 
 (AddNN
-  [LAMBDA (x y)                                              (* edited%: "27-APR-81 15:31")
+  (LAMBDA (x y)                                              (* edited%: "27-APR-81 15:31")
     (PLUS (OR x 0)
-          (OR y 0])
+          (OR y 0))))
 
 (AddPropL
-  [LAMBDA (L P V)                                            (* edited%: "24-Feb-81 22:10")
+  (LAMBDA (L P V)                                            (* edited%: "24-Feb-81 22:10")
                                                              (* Like ADDPROP, but works for LISTS)
     (COND
        ((ASSOC P L)
@@ -262,55 +261,55 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
                V)
         L)
        (L (NCONC1 L (LIST P V)))
-       (T (LIST (LIST P V])
+       (T (LIST (LIST P V))))))
 
 (Alg
-  [LAMBDA (u)                                                (* edited%: "25-APR-81 11:22")
+  (LAMBDA (u)                                                (* edited%: "25-APR-81 11:22")
     (OR (GETPROP u 'Alg)
         (SOME1 (SubSlots 'Alg)
                (FUNCTION (LAMBDA (s)
-                           (APPLY* s u])
+                           (APPLY* s u)))))))
 
 (AllPairs
-  [LAMBDA (L Rel v)                                          (* edited%: "24-Apr-81 02:13")
+  (LAMBDA (L Rel v)                                          (* edited%: "24-Apr-81 02:13")
     (for ip from 1 to (LENGTH L) as ii in L
        join (for jp from 1 to (LENGTH L) as jj in L
                join (COND
                        ((EQ ip jp)
                         NIL)
                        ((SETQ v (APPLY* Rel ii jj))
-                        (LIST (LIST ip jp ii jj v])
+                        (LIST (LIST ip jp ii jj v))))))))
 
 (ApplicArgs
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:26")
-    (CAR X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:26")
+    (CAR X)))
 
 (ApplicGenArgs
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:44")
-    (CADDR X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:44")
+    (CADDR X)))
 
 (ApplicGenBuild
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:43")
-    (CADR X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:43")
+    (CADR X)))
 
 (ApplicGenInit
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:43")
-    (CAR X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 13:43")
+    (CAR X)))
 
 (Apply-to-u
-  [LAMBDA (s)                                                (* edited%: "11-MAR-81 11:58")
-    (APPLY* s u])
+  (LAMBDA (s)                                                (* edited%: "11-MAR-81 11:58")
+    (APPLY* s u)))
 
 (ApplyAlg
-  [LAMBDA (f args)                                           (* edited%: "27-APR-81 22:15")
-    (APPLY 'RunAlg (CONS f args])
+  (LAMBDA (f args)                                           (* edited%: "27-APR-81 22:15")
+    (APPLY 'RunAlg (CONS f args))))
 
 (ApplyDefn
-  [LAMBDA (u args)                                           (* edited%: "27-APR-81 22:15")
-    (APPLY 'RunDefn (CONS u args])
+  (LAMBDA (u args)                                           (* edited%: "27-APR-81 22:15")
+    (APPLY 'RunDefn (CONS u args))))
 
 (ApplyRule
-  [LAMBDA (r u msg tau)                                      (* edited%: "20-Mar-81 00:46")
+  (LAMBDA (r u msg tau)                                      (* edited%: "20-Mar-81 00:46")
                                                              (* Unfortuantely, this doesn't check 
                                                              the value of AbortTask...)
     (SETQ tau ArgU)
@@ -322,56 +321,56 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
                        'XeqIfItExists)
                 (CPRIN1 75 "	The Then Parts of the rule have been executed. 
 " CRLF))
-           (SETQ ArgU tau])
+           (SETQ ArgU tau))))
 
 (Average
-  [LAMBDA (N M)                                              (* edited%: "23-FEB-81 14:07")
+  (LAMBDA (N M)                                              (* edited%: "23-FEB-81 14:07")
     (QUOTIENT (PLUS N M 1)
-           2])
+           2)))
 
 (AverageWorths
-  [LAMBDA (u v)                                              (* edited%: "31-Mar-81 21:11")
+  (LAMBDA (u v)                                              (* edited%: "31-Mar-81 21:11")
     (QUOTIENT (PLUS (OR (Worth u)
                         0)
                     (OR (Worth v)
                         0))
-           2])
+           2)))
 
 (BestChoose
-  [LAMBDA (L)                                                (* edited%: "25-MAR-81 12:17")
-    [AND (LITATOM L)
+  (LAMBDA (L)                                                (* edited%: "25-MAR-81 12:17")
+    (AND (LITATOM L)
          (MEMB 'Set (IsA L))
          (SETQ L (OR (Examples L)
-                     (GatherExamples L]
+                     (GatherExamples L))))
     (MAXIMUM (SUBSET L 'Unitp)
-           'Worth])
+           'Worth)))
 
 (BestSubset
-  [LAMBDA (L)                                                (* edited%: "25-MAR-81 12:18")
-    [AND (LITATOM L)
+  (LAMBDA (L)                                                (* edited%: "25-MAR-81 12:18")
+    (AND (LITATOM L)
          (MEMB 'Set (IsA L))
          (SETQ L (OR (Examples L)
-                     (GatherExamples L]
+                     (GatherExamples L))))
     (DREVERSE (NTH (SortByWorths (APPEND L))
-                   (RAND 1 (LENGTH L])
+                   (RAND 1 (LENGTH L))))))
 
 (CPRIN1
-  [LAMBDA CprinX                                             (* edited%: "28-FEB-81 18:57")
-    [COND
+  (LAMBDA CprinX                                             (* edited%: "28-FEB-81 18:57")
+    (COND
        ((IGREATERP Verbosity (ARG CprinX 1))
         (SETQ cprintmp 1)
         (RPTQ (SUB1 CprinX)
               (PRIN1 (ARG CprinX (SETQ cprintmp (ADD1 cprintmp)))
-                     TTY]
-    T])
+                     TTY))))
+    T))
 
 (CacheExamples
-  [LAMBDA (u)                                                (* edited%: " 1-APR-81 12:33")
+  (LAMBDA (u)                                                (* edited%: " 1-APR-81 12:33")
     (OR (GETPROP u 'Examples)
-        (PUT u 'Examples (GatherExamples u])
+        (PUT u 'Examples (GatherExamples u)))))
 
 (Certainty
-  [LAMBDA (N)                                                (* edited%: "15-FEB-81 17:23")
+  (LAMBDA (N)                                                (* edited%: "15-FEB-81 17:23")
     (COND
        ((ILESSP N 100)
         'Inconceivable)
@@ -381,57 +380,57 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
         'Possible)
        ((ILESSP N 800)
         'Probable)
-       (T 'AlmostCertain])
+       (T 'AlmostCertain))))
 
 (Check2AfterEditp
-  [LAMBDA (oldprop oldval invprop)                           (* edited%: "23-FEB-81 18:55")
+  (LAMBDA (oldprop oldval invprop)                           (* edited%: "23-FEB-81 18:55")
     (AND (Inverse oldprop)
          (NULL (APPLY* oldprop (CAR EDITPX)))
          (SETQ invprop (CAR (Inverse oldprop)))
          (MAPC oldval (FUNCTION (LAMBDA (e)
-                                  (REM1PROP e invprop (CAR EDITPX])
+                                  (REM1PROP e invprop (CAR EDITPX))))))))
 
 (CheckAfterEditp
-  [LAMBDA (prop val old invprop)                             (* edited%: "27-Feb-81 19:43")
+  (LAMBDA (prop val old invprop)                             (* edited%: "27-Feb-81 19:43")
     (AND (SETQ invprop (CAR (Inverse prop)))
-         (PROGN [MAPC (SetDiff val (SETQ old (LISTGET EditpTemp prop)))
+         (PROGN (MAPC (SetDiff val (SETQ old (LISTGET EditpTemp prop)))
                       (FUNCTION (LAMBDA (e)
-                                  (DwimUnionProp e invprop (CAR EDITPX]
+                                  (DwimUnionProp e invprop (CAR EDITPX)))))
                 (MAPC (SetDiff old val)
                       (FUNCTION (LAMBDA (e)
-                                  (REM1PROP e invprop (CAR EDITPX])
+                                  (REM1PROP e invprop (CAR EDITPX)))))))))
 
 (CheckElim
-  [LAMBDA NIL                                                (* edited%: "18-MAR-81 11:50")
+  (LAMBDA NIL                                                (* edited%: "18-MAR-81 11:50")
     (AND (YesNo NIL "Should I eliminate recently-computed values? ")
-         (MAPC Units 'InitialElimSlots])
+         (MAPC Units 'InitialElimSlots))))
 
 (CheckTheValues
-  [LAMBDA (u s v)                                            (* edited%: " 2-MAR-81 18:40")
+  (LAMBDA (u s v)                                            (* edited%: " 2-MAR-81 18:40")
 
          (* doublecheck that all the values on v are legitimate entries for the s slot of 
          u)
 
-    T])
+    T))
 
 (Comp
-  [LAMBDA (F D SaveExpr?)                                    (* edited%: "19-MAR-81 13:22")
+  (LAMBDA (F D SaveExpr?)                                    (* edited%: "19-MAR-81 13:22")
     (RESETVARS (LAPFLG STRF SVFLG LCFIL LSTFIL)
                (SETQ STRF T)
                (SETQ SVFLG SaveExpr?)
                (COMPILE1 F D))
     (COND
        (SaveExpr? F)
-       (T (REMPROP F 'EXPR])
+       (T (REMPROP F 'EXPR)))))
 
 (ConsNN
-  [LAMBDA (x l)                                              (* edited%: "26-APR-81 18:57")
+  (LAMBDA (x l)                                              (* edited%: "26-APR-81 18:57")
     (COND
        (x (CONS x l))
-       (T l])
+       (T l))))
 
 (CreateUnit
-  [LAMBDA (N NOLD)                                           (* edited%: "15-APR-81 17:51")
+  (LAMBDA (N NOLD)                                           (* edited%: "15-APR-81 17:51")
     (PROG1 (COND
               ((NOT (ATOM N))
                (WARNING (CONS "Must be atomic unit name! You typed: " N)))
@@ -441,15 +440,15 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
               ((MEMB NOLD Units)
                (SETQ Units (CONS N Units))
                (SETQ NewU (CONS N NewU))
-               [SETPROPLIST N (MergeProps (APPEND (GETPROPLIST N))
-                                     (SlotSubst N NOLD (GETPROPLIST NOLD]
-               [MAPC (PROPNAMES N)
+               (SETPROPLIST N (MergeProps (APPEND (GETPROPLIST N))
+                                     (SlotSubst N NOLD (GETPROPLIST NOLD))))
+               (MAPC (PROPNAMES N)
                      (FUNCTION (LAMBDA (P)
                                  (COND
                                     ((DontCopy P)
                                      (REMPROP N P))
                                     ((DoubleCheck P)
-                                     (CheckTheValues N P (APPLY* P N]
+                                     (CheckTheValues N P (APPLY* P N)))))))
                (AddInv N)
                N)
               (T (SETQ Units (CONS N Units))
@@ -463,14 +462,14 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
              (SETQ MoveDefns (CONS (LIST 'MOVD (KWOTE NOLD)
                                          (KWOTE N)
                                          T)
-                                   MoveDefns))))])
+                                   MoveDefns))))))
 
 (CurSup
-  [LAMBDA (ESA)                                              (* edited%: "23-FEB-81 13:36")
-    (CAR (CDDDDR ESA])
+  (LAMBDA (ESA)                                              (* edited%: "23-FEB-81 13:36")
+    (CAR (CDDDDR ESA))))
 
 (CycleThruAgenda
-  [LAMBDA NIL                                                (* edited%: "15-FEB-81 16:25")
+  (LAMBDA NIL                                                (* edited%: "15-FEB-81 16:25")
     (PROG (task)
       TLOOP
           (COND
@@ -480,10 +479,10 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
                                                              Agenda)
                     T)
              (T (RETURN NIL)))
-          (GO TLOOP])
+          (GO TLOOP))))
 
 (DSPBOLD
-  [LAMBDA (st ds)                                        (* ; "Edited 29-Nov-2023 06:17 by seveno4")
+  (LAMBDA (st ds)                                        (* ; "Edited 29-Nov-2023 06:17 by seveno4")
     (COND
        ((EQ st 'ON)
         (DSPFONT '(WEIGHT BOLD)
@@ -491,31 +490,31 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
        ((EQ st 'OFF)
         (DSPFONT '(WEIGHT MEDIUM)
                ds))
-       (T NIL])
+       (T NIL))))
 
 (Date2
-  [LAMBDA (day mon temp dat)                                 (* edited%: " 1-APR-81 13:31")
+  (LAMBDA (day mon temp dat)                                 (* edited%: " 1-APR-81 13:31")
     (SETQ dat (UNPACK (DATE)))
     (SETQ temp (MEMB '- dat))
-    [SETQ day (PACK (REMOVE '%  (LDIFF dat temp]
-    [SETQ mon (PACK (LDIFF (CDR temp)
-                           (MEMB '- (CDR temp]
-    (PACK* mon day])
+    (SETQ day (PACK (REMOVE '%  (LDIFF dat temp))))
+    (SETQ mon (PACK (LDIFF (CDR temp)
+                           (MEMB '- (CDR temp)))))
+    (PACK* mon day)))
 
 (DecrementCreditAssignment
-  [LAMBDA NIL                                                (* edited%: "23-FEB-81 16:49")
-    (SETQ GCredit (ADD1 GCredit])
+  (LAMBDA NIL                                                (* edited%: "23-FEB-81 16:49")
+    (SETQ GCredit (ADD1 GCredit))))
 
 (DefineIfSlot
-  [LAMBDA (s)                                                (* edited%: "23-Mar-81 16:45")
+  (LAMBDA (s)                                                (* edited%: "23-Mar-81 16:45")
     (AND (Slotp s)
          (NULL (GETD s))
          (SETQ Slots (CONS s Slots))
          (DefineSlot s))
-    s])
+    s))
 
 (DefineSlot
-  [LAMBDA (s)                                                (* edited%: " 2-MAR-81 14:17")
+  (LAMBDA (s)                                                (* edited%: " 2-MAR-81 14:17")
                                                              (* Really this should doublecheck that 
                                                              s isa slot)
     (COND
@@ -524,38 +523,38 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
        ((EXPRP s)
         (Comp s (GETD s)
               T))
-       (T [PUTD s (LIST 'LAMBDA (LIST 'u)
-                        (LIST 'GETPROP 'u (KWOTE s]
-          (Comp s (GETD s])
+       (T (PUTD s (LIST 'LAMBDA (LIST 'u)
+                        (LIST 'GETPROP 'u (KWOTE s))))
+          (Comp s (GETD s))))))
 
 (Defn
-  [LAMBDA (u)                                                (* edited%: "15-APR-81 17:54")
+  (LAMBDA (u)                                                (* edited%: "15-APR-81 17:54")
     (OR (GETPROP u 'Defn)
-        [SOME1 (SubSlots 'Defn)
+        (SOME1 (SubSlots 'Defn)
                (FUNCTION (LAMBDA (s)
-                           (APPLY* s u]
+                           (APPLY* s u))))
         (AND (IsA u 'Category)
              (SUBST u 'u '(LAMBDA (z)
-                            (MEMB 'u (IsA z])
+                            (MEMB 'u (IsA z))))))))
 
 (DirectApplics
-  [LAMBDA (u)                                                (* edited%: " 7-Mar-81 14:55")
+  (LAMBDA (u)                                                (* edited%: " 7-Mar-81 14:55")
     (SUBSET (Applics u)
            (FUNCTION (LAMBDA (A)
                        (MEMB (CADDR A)
-                             '(NIL 1])
+                             '(NIL 1)))))))
 
 (Divides
-  [LAMBDA (A B)                                              (* edited%: " 2-MAR-81 15:58")
-    (ZEROP (REMAINDER B A])
+  (LAMBDA (A B)                                              (* edited%: " 2-MAR-81 15:58")
+    (ZEROP (REMAINDER B A))))
 
 (DoesIntersect
-  [LAMBDA (L M)                                              (* edited%: "23-Mar-81 16:47")
+  (LAMBDA (L M)                                              (* edited%: "23-Mar-81 16:47")
     (SOME L (FUNCTION (LAMBDA (Z)
-                        (MEMB Z M])
+                        (MEMB Z M))))))
 
 (DreplaceGet
-  [LAMBDA (L)                                                (* edited%: " 2-MAR-81 11:37")
+  (LAMBDA (L)                                                (* edited%: " 2-MAR-81 11:37")
     (COND
        ((Quoted (CADDR L))
         (RPLACA L (CADR (CADDR L)))
@@ -565,16 +564,16 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
        (T (RPLACA L (CADDR L))
           (RPLACD (CDR L)
                  NIL)
-          (ATTACH 'APPLY* L])
+          (ATTACH 'APPLY* L)))))
 
 (DwimUnionProp
-  [LAMBDA (A P V flag tmp8)                                  (* edited%: " 2-APR-81 13:44")
+  (LAMBDA (A P V flag tmp8)                                  (* edited%: " 2-APR-81 13:44")
     (COND
        ((Unitp A)
         (UnionProp A P V flag))
        ((FMEMB A SpecialNonUnits)
         (CPRIN1 50 CRLF A " isn't a unit, but it has an excuse, so we'll let it slide. " CRLF))
-       [(LITATOM A)
+       ((LITATOM A)
         (PRIN1 (CONS A '(is not yet a unit; make it one?))
                TTY)
         (AND (YesNo)
@@ -583,17 +582,17 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
              (UnionProp 'Slot 'Examples A)
              (NU A (AND (Inverse P)
                         (Unitp V)
-                        [SETQ tmp8 (CAR (SOME (APPLY* (CAR (Inverse P))
+                        (SETQ tmp8 (CAR (SOME (APPLY* (CAR (Inverse P))
                                                      V)
-                                              'Unitp]
+                                              'Unitp)))
                         (PRIN1 " ...  Copying from " TTY)
                         (PRIN1 tmp8 TTY)
                         (PRIN1 CRLF TTY)
-                        tmp8]
-       (T NIL])
+                        tmp8))))
+       (T NIL))))
 
 (EU
-  [NLAMBDA EDITPX                                            (* edited%: " 2-MAR-81 16:38")
+  (NLAMBDA EDITPX                                            (* edited%: " 2-MAR-81 16:38")
     (COND
        ((COND
            ((Unitp (CAR EDITPX))
@@ -610,7 +609,7 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
             (TERPRI)
             T)
            (T NIL))
-        [SETQ EditpTemp (COPY (GETPROPLIST (CAR EDITPX]
+        (SETQ EditpTemp (COPY (GETPROPLIST (CAR EDITPX))))
         (EVAL (CONS 'EDITP EDITPX))
         (MAP2C (GETPROPLIST (CAR EDITPX))
                (CDR (GETPROPLIST (CAR EDITPX)))
@@ -620,10 +619,10 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
                (FUNCTION Check2AfterEditp)
                'CDDR)
         (CONS 'FinishedEditing EDITPX))
-       (T NIL])
+       (T NIL))))
 
 (EVERY2
-  [LAMBDA (L M F)                                            (* edited%: "15-APR-81 15:30")
+  (LAMBDA (L M F)                                            (* edited%: "15-APR-81 15:30")
     (COND
        ((NLISTP L)
         T)
@@ -633,10 +632,10 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
                (CAR M))
         (EVERY2 (CDR L)
                (CDR M)
-               F])
+               F)))))
 
 (EqualToWithinSubst
-  [LAMBDA (C1 C2 V1 V2)                                      (* edited%: "27-MAR-81 13:20")
+  (LAMBDA (C1 C2 V1 V2)                                      (* edited%: "27-MAR-81 13:20")
 
          (* Is the value of V1 and V2 equal to within substing C2 for C1 ?)
 
@@ -647,10 +646,10 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
         NIL)
        ((EQUAL V1 V2))
        ((EQUAL V2 (SUBST C2 C1 V1)))
-       (T NIL])
+       (T NIL))))
 
 (Eurisko
-  [LAMBDA (Verbo EternalFlg)                             (* ; "Edited 30-Nov-2023 06:50 by seveno4")
+  (LAMBDA (Verbo EternalFlg)                             (* ; "Edited 30-Nov-2023 06:50 by seveno4")
     (COND
        ((FIXP Verbo)
         (SETQ Verbosity Verbo))
@@ -672,10 +671,10 @@ February, 1981
     (COND
        ((YesNo)
         (START EternalFlg))
-       (T "Type (START) when you are ready."])
+       (T "Type (START) when you are ready."))))
 
 (Examples
-  [LAMBDA (u LookedThru)                                     (* edited%: "26-APR-81 19:12")
+  (LAMBDA (u LookedThru)                                     (* edited%: "26-APR-81 19:12")
     (OR (GETPROP u 'Examples)
         (COND
            ((MEMB u LookedThru)
@@ -683,65 +682,65 @@ February, 1981
            ((SETQ LookedThru (CONS u LookedThru))
             (MapUnion (Specializations u)
                    (FUNCTION (LAMBDA (SU)
-                               (Examples SU LookedThru])
+                               (Examples SU LookedThru)))))))))
 
 (ExtractInput
-  [LAMBDA (X)                                                (* edited%: " 5-MAR-81 17:04")
-    (CAR X])
+  (LAMBDA (X)                                                (* edited%: " 5-MAR-81 17:04")
+    (CAR X)))
 
 (ExtractOutput
-  [LAMBDA (X)                                                (* edited%: " 5-MAR-81 17:05")
-    (CADR X])
+  (LAMBDA (X)                                                (* edited%: " 5-MAR-81 17:05")
+    (CADR X)))
 
 (ExtractPriority
-  [LAMBDA (ESA)                                              (* edited%: "23-FEB-81 14:01")
-    (CAR ESA])
+  (LAMBDA (ESA)                                              (* edited%: "23-FEB-81 14:01")
+    (CAR ESA)))
 
 (ExtractReasons
-  [LAMBDA (ESA)                                              (* edited%: "23-FEB-81 13:35")
-    (CADDDR ESA])
+  (LAMBDA (ESA)                                              (* edited%: "23-FEB-81 13:35")
+    (CADDDR ESA)))
 
 (ExtractSlotName
-  [LAMBDA (ESA)                                              (* edited%: "23-FEB-81 13:35")
-    (CADDR ESA])
+  (LAMBDA (ESA)                                              (* edited%: "23-FEB-81 13:35")
+    (CADDR ESA)))
 
 (ExtractUnitName
-  [LAMBDA (task)                                             (* edited%: "15-FEB-81 16:39")
-    (CADR task])
+  (LAMBDA (task)                                             (* edited%: "15-FEB-81 16:39")
+    (CADR task)))
 
 (FavorFirst
-  [LAMBDA (A B)                                              (* edited%: "26-APR-81 16:23")
+  (LAMBDA (A B)                                              (* edited%: "26-APR-81 16:23")
     (COND
        ((ZEROP (RAND 0 45))
         (EVAL B))
-       (T (EVAL A])
+       (T (EVAL A)))))
 
 (FirstTwo
-  [LAMBDA (L)                                                (* edited%: "24-Apr-81 04:06")
+  (LAMBDA (L)                                                (* edited%: "24-Apr-81 04:06")
     (LIST (CAR L)
-          (CADR L])
+          (CADR L))))
 
 (Flatten
-  [LAMBDA (L)                                                (* edited%: "23-FEB-81 17:25")
+  (LAMBDA (L)                                                (* edited%: "23-FEB-81 17:25")
     (COND
        ((NULL L)
         NIL)
        ((ATOM L)
         (LIST L))
-       (T (MAPCONC L 'Flatten])
+       (T (MAPCONC L 'Flatten)))))
 
 (FractionOf
-  [LAMBDA (L P)                                              (* edited%: "24-FEB-81 18:39")
+  (LAMBDA (L P)                                              (* edited%: "24-FEB-81 18:39")
                                                              (* compute the fraction of entries on 
                                                              L which satisfy predicate P)
     (COND
        ((ATOM L)
         0)
        (T (QUOTIENT (FLOAT (LENGTH (SUBSET L P)))
-                 (FLOAT (LENGTH L])
+                 (FLOAT (LENGTH L)))))))
 
 (GatherExamples
-  [LAMBDA (u LookedThru)                                     (* edited%: "25-MAR-81 11:30")
+  (LAMBDA (u LookedThru)                                     (* edited%: "25-MAR-81 11:30")
     (OR (GETPROP u 'Examples)
         (COND
            ((MEMB u LookedThru)
@@ -749,35 +748,35 @@ February, 1981
            ((SETQ LookedThru (CONS u LookedThru))
             (MapUnion (Specializations u)
                    (FUNCTION (LAMBDA (SU)
-                               (GatherExamples SU LookedThru])
+                               (GatherExamples SU LookedThru)))))))))
 
 (GenArgs
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 12:15")
-    (CADDR X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 12:15")
+    (CADDR X)))
 
 (GenBuild
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 12:15")
-    (CADR X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 12:15")
+    (CADR X)))
 
 (GenInit
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 12:15")
-    (CAR X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 12:15")
+    (CAR X)))
 
 (Generalizations
-  [LAMBDA (u)                                                (* edited%: "19-FEB-81 16:36")
-    (SelfIntersect (NCONC [MAPCONC (GETPROP 'Generalizations 'SubSlots)
+  (LAMBDA (u)                                                (* edited%: "19-FEB-81 16:36")
+    (SelfIntersect (NCONC (MAPCONC (GETPROP 'Generalizations 'SubSlots)
                                  (FUNCTION (LAMBDA (ss)
-                                             (APPEND (GETPROP u ss]
-                          (GETPROP u 'Generalizations])
+                                             (APPEND (GETPROP u ss)))))
+                          (GETPROP u 'Generalizations)))))
 
 (Generalize1LispExpr
-  [LAMBDA (bod tmp tmp2 fbod)                                (* edited%: "25-MAR-81 12:34")
+  (LAMBDA (bod tmp tmp2 fbod)                                (* edited%: "25-MAR-81 12:34")
 
          (* AreUnits is the list of units mentioned in bod ;
          HaveGenl are those which have specializations already)
 
     (COND
-       ([SETQ tmp2 (RandomChoose (Generalizations
+       ((SETQ tmp2 (RandomChoose (Generalizations
                                   (SETQ tmp (RandomChoose
                                              (SETQ HaveGenl
                                               (UNION (SUBSET (SETQ AreUnits
@@ -785,60 +784,60 @@ February, 1981
                                                                                   (Flatten bod)))
                                                                      'Unitp))
                                                             'Generalizations)
-                                                     HaveGenl]
+                                                     HaveGenl)))))))
         (SETQ UDiff (LIST tmp RArrow tmp2))
         (RandomSubst tmp2 tmp bod))
-       ([SETQ tmp2 (GeneralizeNumber (SETQ tmp (RandomChoose (SUBSET (SelfIntersect fbod)
-                                                                    'NUMBERP]
+       ((SETQ tmp2 (GeneralizeNumber (SETQ tmp (RandomChoose (SUBSET (SelfIntersect fbod)
+                                                                    'NUMBERP)))))
         (SETQ UDiff (LIST tmp RArrow tmp2))
         (RandomSubst tmp2 tmp bod))
-       (T bod])
+       (T bod))))
 
 (Generalize1LispFn
-  [LAMBDA (bod)                                              (* edited%: "25-MAR-81 12:32")
-    (Generalize1LispExpr bod])
+  (LAMBDA (bod)                                              (* edited%: "25-MAR-81 12:32")
+    (Generalize1LispExpr bod)))
 
 (Generalize1LispPred
-  [LAMBDA (bod tmp tmp2)                                     (* edited%: "25-MAR-81 12:33")
-    (Generalize1LispExpr bod])
+  (LAMBDA (bod tmp tmp2)                                     (* edited%: "25-MAR-81 12:33")
+    (Generalize1LispExpr bod)))
 
 (GeneralizeBit
-  [LAMBDA (b)                                                (* edited%: "28-Feb-81 17:22")
-    (NOT b])
+  (LAMBDA (b)                                                (* edited%: "28-Feb-81 17:22")
+    (NOT b)))
 
 (GeneralizeCompiledLispCode
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 16:08")
-    X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 16:08")
+    X))
 
 (GeneralizeDataType
-  [LAMBDA (x tmp)                                            (* edited%: "25-MAR-81 12:39")
+  (LAMBDA (x tmp)                                            (* edited%: "25-MAR-81 12:39")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeDataType Z))
-                                 (T Z]
+                                 (T Z))))))
        ((SETQ tmp (RandomChoose (Generalizations x)))
         (SETQ UDiff (LIST x RArrow tmp))
         tmp)
-       (T x])
+       (T x))))
 
 (GeneralizeDottedPair
-  [LAMBDA (x)                                                (* edited%: " 1-APR-81 14:36")
-    x])
+  (LAMBDA (x)                                                (* edited%: " 1-APR-81 14:36")
+    x))
 
 (GeneralizeIOPair
-  [LAMBDA (x)                                                (* edited%: " 2-MAR-81 18:20")
+  (LAMBDA (x)                                                (* edited%: " 2-MAR-81 18:20")
 
          (* eventually%: look thru the (i o) pairs, and make a few new ones, with i's 
          selected from the set of i's, and o's similarly --
          or select from examples of things which i and o are examples of)
 
-    x])
+    x))
 
 (GeneralizeLispFn
-  [LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:34")
+  (LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:34")
 
          (* presumed to be given either the name of a predicate, or a list of the form
          (LAMBDA --))
@@ -848,26 +847,26 @@ February, 1981
         (GeneralizeNumber x))
        ((LITATOM x)
         (COND
-           [(Generalizations x)
-            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Generalizations x]
+           ((Generalizations x)
+            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Generalizations x))))))
            (T x)))
        ((NLISTP x)
         x)
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeLispFn Z))
-                                 (T Z]
-       [(EQ (CAR x)
+                                 (T Z))))))
+       ((EQ (CAR x)
             'LAMBDA)
         (CONS 'LAMBDA (CONS (CADR x)
                             (MAPCAR (CDDR x)
-                                   'Generalize1LispFn]
-       (T x])
+                                   'Generalize1LispFn))))
+       (T x))))
 
 (GeneralizeLispPred
-  [LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:34")
+  (LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:34")
 
          (* presumed to be given either the name of a predicate, or a list of the form
          (LAMBDA --))
@@ -877,181 +876,181 @@ February, 1981
         (GeneralizeNumber x))
        ((LITATOM x)
         (COND
-           [(Generalizations x)
-            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Generalizations x]
+           ((Generalizations x)
+            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Generalizations x))))))
            (T x)))
        ((NLISTP x)
         x)
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeLispPred Z))
-                                 (T Z]
-       [(EQ (CAR x)
+                                 (T Z))))))
+       ((EQ (CAR x)
             'LAMBDA)
         (CONS 'LAMBDA (CONS (CADR x)
                             (MAPCAR (CDDR x)
-                                   'Generalize1LispPred]
-       (T x])
+                                   'Generalize1LispPred))))
+       (T x))))
 
 (GeneralizeList
-  [LAMBDA (x)                                                (* edited%: "25-MAR-81 12:46")
+  (LAMBDA (x)                                                (* edited%: "25-MAR-81 12:46")
     (COND
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeList Z))
-                                 (T Z]
+                                 (T Z))))))
        (T (SETQ UDiff (LIST 'Duplicated%:))
-          (SORT (APPEND [SUBSET x (FUNCTION (LAMBDA (R)
+          (SORT (APPEND (SUBSET x (FUNCTION (LAMBDA (R)
                                               (COND
                                                  ((RandomP)
                                                   (NCONC1 UDiff R)
                                                   NIL)
-                                                 (T T]
+                                                 (T T)))))
                        x)
-                'RandomP])
+                'RandomP)))))
 
 (GeneralizeNIL
-  [LAMBDA (X)                                                (* edited%: "25-MAR-81 12:43")
-    (WARNING (CONS X " can't be generalized if it doesn't have a known DataType! "])
+  (LAMBDA (X)                                                (* edited%: "25-MAR-81 12:43")
+    (WARNING (CONS X " can't be generalized if it doesn't have a known DataType! "))))
 
 (GeneralizeNumber
-  [LAMBDA (x)                                                (* edited%: "25-MAR-81 12:31")
+  (LAMBDA (x)                                                (* edited%: "25-MAR-81 12:31")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeNumber Z))
-                                 (T Z]
-       [(FIXP x)
+                                 (T Z))))))
+       ((FIXP x)
         (CADDR (SETQ UDiff (LIST x RArrow (RAND x (COND
                                                      ((ILEQ x 1000)
                                                       1000)
-                                                     (T (TIMES x 10]
-       [(NUMBERP x)
+                                                     (T (TIMES x 10))))))))
+       ((NUMBERP x)
         (CADDR (SETQ UDiff (LIST x RArrow (QUOTIENT (RAND (FIX (TIMES x 200))
                                                           (FIX (TIMES x (MAX 5.0 x)
                                                                       200)))
-                                                 200.0]
-       (T NIL])
+                                                 200.0)))))
+       (T NIL))))
 
 (GeneralizeSlot
-  [LAMBDA (x tmp)                                            (* edited%: "25-MAR-81 12:44")
+  (LAMBDA (x tmp)                                            (* edited%: "25-MAR-81 12:44")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeSlot Z))
-                                 (T Z]
+                                 (T Z))))))
        ((SETQ tmp (RandomChoose (Generalizations x)))
         (SETQ UDiff (LIST x RArrow tmp))
         tmp)
-       (T x])
+       (T x))))
 
 (GeneralizeText
-  [LAMBDA (x)                                                (* edited%: "25-MAR-81 12:46")
+  (LAMBDA (x)                                                (* edited%: "25-MAR-81 12:46")
     (COND
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeText Z))
-                                 (T Z]
+                                 (T Z))))))
        (T (SETQ UDiff (LIST 'Duplicated%:))
-          (SORT (APPEND [SUBSET x (FUNCTION (LAMBDA (R)
+          (SORT (APPEND (SUBSET x (FUNCTION (LAMBDA (R)
                                               (COND
                                                  ((RandomP)
                                                   (NCONC1 UDiff R)
                                                   NIL)
-                                                 (T T]
+                                                 (T T)))))
                        x)
-                'RandomP])
+                'RandomP)))))
 
 (GeneralizeUnit
-  [LAMBDA (x tmp)                                            (* edited%: "25-MAR-81 12:47")
+  (LAMBDA (x tmp)                                            (* edited%: "25-MAR-81 12:47")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (GeneralizeUnit Z))
-                                 (T Z]
+                                 (T Z))))))
        ((SETQ tmp (RandomChoose (Generalizations x)))
         (SETQ UDiff (LIST x RArrow tmp))
         tmp)
-       (T x])
+       (T x))))
 
 (GetABag
-  [LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
-    (GetAList ov])
+  (LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
+    (GetAList ov)))
 
 (GetAList
-  [LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
+  (LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
     (for i from 0 to (RAND 0 (SQUARE (RAND 1 10)))
        collect (FavorFirst '(RandomChoose (CacheExamples 'Anything))
-                      '(GetAStruc])
+                      '(GetAStruc)))))
 
 (GetAOPair
-  [LAMBDA (ov)                                               (* edited%: "26-APR-81 15:58")
-    (FirstTwo (GetAList ov])
+  (LAMBDA (ov)                                               (* edited%: "26-APR-81 15:58")
+    (FirstTwo (GetAList ov))))
 
 (GetAOSet
-  [LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
-    (SelfIntersect (GetAList ov])
+  (LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
+    (SelfIntersect (GetAList ov))))
 
 (GetASet
-  [LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
-    (SelfIntersect (GetAList ov])
+  (LAMBDA (ov)                                               (* edited%: "22-APR-81 15:15")
+    (SelfIntersect (GetAList ov))))
 
 (GetAStruc
-  [LAMBDA (ov f)                                             (* edited%: "22-APR-81 13:23")
+  (LAMBDA (ov f)                                             (* edited%: "22-APR-81 13:23")
     (COND
-       ([GETD (SETQ f (PACK* 'GetA (RandomChoose (GETPROP 'Structure 'Specializations]
+       ((GETD (SETQ f (PACK* 'GetA (RandomChoose (GETPROP 'Structure 'Specializations)))))
         (APPLY* f ov))
-       (T (GetAStruc ov])
+       (T (GetAStruc ov)))))
 
 (GoodChoose
-  [LAMBDA (L)                                                (* edited%: "25-MAR-81 12:19")
-    [AND (LITATOM L)
+  (LAMBDA (L)                                                (* edited%: "25-MAR-81 12:19")
+    (AND (LITATOM L)
          (MEMB 'Set (IsA L))
          (SETQ L (OR (Examples L)
-                     (GatherExamples L]
+                     (GatherExamples L))))
     (CAR (SOME (SortByWorths (APPEND L))
-               'RandomP])
+               'RandomP))))
 
 (GoodSubset
-  [LAMBDA (L)                                                (* edited%: "25-MAR-81 12:18")
-    (RandomSubset (BestSubset L])
+  (LAMBDA (L)                                                (* edited%: "25-MAR-81 12:18")
+    (RandomSubset (BestSubset L))))
 
 (Half
-  [LAMBDA (n)                                                (* edited%: "18-MAR-81 13:38")
-    (IQUOTIENT n 2])
+  (LAMBDA (n)                                                (* edited%: "18-MAR-81 13:38")
+    (IQUOTIENT n 2)))
 
 (HasHighWorth
-  [LAMBDA (u)                                                (* edited%: "15-FEB-81 13:48")
+  (LAMBDA (u)                                                (* edited%: "15-FEB-81 13:48")
     (AND (Unitp u)
          (GREATERP (Worth u)
-                800])
+                800))))
 
 (ISQRT
-  [LAMBDA (N)                                                (* edited%: " 4-MAR-81 15:32")
-    (FIX (SQRT N])
+  (LAMBDA (N)                                                (* edited%: " 4-MAR-81 15:32")
+    (FIX (SQRT N))))
 
 (IndirectApplics
-  [LAMBDA (u)                                                (* edited%: " 7-Mar-81 14:55")
+  (LAMBDA (u)                                                (* edited%: " 7-Mar-81 14:55")
     (SUBSET (Applics u)
            (FUNCTION (LAMBDA (A)
                        (NOT (MEMB (CADDR A)
-                                  '(NIL 1])
+                                  '(NIL 1))))))))
 
 (InitialCheckInv
-  [LAMBDA (uns BogusU)                                       (* edited%: "28-APR-81 01:56")
-    [AND (YesNo NIL "Shall I ferret out nonunits referred to by honest, true units? ")
+  (LAMBDA (uns BogusU)                                       (* edited%: "28-APR-81 01:56")
+    (AND (YesNo NIL "Shall I ferret out nonunits referred to by honest, true units? ")
          (Map&Print (COND
                        ((NULL uns)
                         Units)
@@ -1063,7 +1062,7 @@ February, 1981
                 (FUNCTION (LAMBDA (un MustRem)
                             (MAP2C (GETPROPLIST un)
                                    (CDR (GETPROPLIST un))
-                                   [FUNCTION (LAMBDA (pr val inv)
+                                   (FUNCTION (LAMBDA (pr val inv)
                                                (AND (SETQ inv (CAR (Inverse pr)))
                                                     (MAPC val
                                                           (FUNCTION (LAMBDA (e)
@@ -1078,11 +1077,12 @@ February, 1981
                                                                                (CONS (LIST un pr e)
                                                                                      MustRem))
                                                                               (SETQ BogusU
-                                                                               (CONS e BogusU]
+                                                                               (CONS e BogusU))))))))
+                                               ))
                                    'CDDR)
-                            [MAPC MustRem (FUNCTION (LAMBDA (L)
-                                                      (APPLY 'REM1PROP L]
-                            un]
+                            (MAPC MustRem (FUNCTION (LAMBDA (L)
+                                                      (APPLY 'REM1PROP L))))
+                            un))))
     (CPRIN1 -2 CRLF "Finished ferreting out non-units. Ready to add all inverse pointers? ")
     (AND (YesNo)
          (Map&Print Units 'AddInv))
@@ -1091,51 +1091,51 @@ February, 1981
     (AND (YesNo)
          (Map&Print (Examples 'Heuristic)
                 'ZeroRecords))
-    BogusU])
+    BogusU))
 
 (InitialElimSlots
-  [LAMBDA (u)                                                (* edited%: " 4-MAR-81 16:41")
-    [MAPC SlotsToElimInitially (FUNCTION (LAMBDA (s)
-                                           (REMPROP u s]
+  (LAMBDA (u)                                                (* edited%: " 4-MAR-81 16:41")
+    (MAPC SlotsToElimInitially (FUNCTION (LAMBDA (s)
+                                           (REMPROP u s))))
     (MAPC (ElimSlots u)
           (FUNCTION (LAMBDA (s)
-                      (REMPROP u s])
+                      (REMPROP u s))))))
 
 (InitializeCreditAssignment
-  [LAMBDA NIL                                                (* edited%: "23-FEB-81 16:49")
-    (SETQ GCredit 1])
+  (LAMBDA NIL                                                (* edited%: "23-FEB-81 16:49")
+    (SETQ GCredit 1)))
 
 (InitializeEurisko
-  [LAMBDA (doit)                                             (* edited%: "15-APR-81 13:50")
+  (LAMBDA (doit)                                             (* edited%: "15-APR-81 13:50")
     (Interrupts)
-    [COND
-       [(OR doit (YesNo NIL "Fully Initialize? "))
+    (COND
+       ((OR doit (YesNo NIL "Fully Initialize? "))
         (PRIN1 "OK, defining Slots, UsedSlots, UnusedSlots, NUnitSlots as I go along... " TTY)
         (SETQ Agenda NIL)
         (SETQ Conjectures NIL)
         (SETQ UnusedSlots NIL)
         (SETQ UsedSlots NIL)
-        [MAPC Units (FUNCTION (LAMBDA (U)
+        (MAPC Units (FUNCTION (LAMBDA (U)
                                 (MAPC (PROPNAMES U)
                                       (FUNCTION (LAMBDA (SL)
                                                   (OR (MEMB SL UsedSlots)
                                                       (MEMB SL SYSPROPS)
                                                       (PROGN (SETQ UsedSlots (CONS SL UsedSlots))
-                                                             (DefineSlot SL]
-        [MAPC Units (FUNCTION (LAMBDA (u)
+                                                             (DefineSlot SL)))))))))
+        (MAPC Units (FUNCTION (LAMBDA (u)
                                 (AND (MEMB 'Slot (IsA u))
                                      (NOT (MEMB u UsedSlots))
                                      (SETQ UnusedSlots (CONS u UnusedSlots))
-                                     (DefineSlot u]
+                                     (DefineSlot u)))))
         (SETQ UsedSlots (SORT UsedSlots))
         (SETQ UnusedSlots (SORT UnusedSlots))
         (MAPC UnusedSlots 'DefineSlot)
         (PRIN1 "Done! " TTY)
-        (PRIN1 (LIST [LENGTH (SETQ Slots (MERGE (APPEND UsedSlots)
-                                                (APPEND UnusedSlots]
+        (PRIN1 (LIST (LENGTH (SETQ Slots (MERGE (APPEND UsedSlots)
+                                                (APPEND UnusedSlots))))
                      'Slots)
                TTY)
-        [AND (SETQ NUnitSlots (SUBSET Slots 'NUnitp))
+        (AND (SETQ NUnitSlots (SUBSET Slots 'NUnitp))
              (YesNo NIL (CONCAT (LENGTH NUnitSlots)
                                " slots aren't defined as units.  Do that now? "))
              (MAPC (APPEND NUnitSlots)
@@ -1143,7 +1143,7 @@ February, 1981
                                (TERPRI TTY)
                                (PRINT Z TTY)
                                (NU Z 'Abbrev)
-                               (SETQ NUnitSlots (DREMOVE Z NUnitSlots]
+                               (SETQ NUnitSlots (DREMOVE Z NUnitSlots))))))
         (AND NewU (CPRIN1 -1 CRLF "Eliminate the recently synthesized units? ")
              (CPRIN1 20 NewU)
              (YesNo)
@@ -1153,17 +1153,17 @@ February, 1981
              (CPRIN1 -1 CRLF "Eliminate the individual values filled in during an earlier run, for slots of units still in existence? "
                     )
              (YesNo)
-             (MAPC Units 'InitialElimSlots]
+             (MAPC Units 'InitialElimSlots)))
        (T (PRIN1 " OK, just initializing the slot definitions. " TTY)
           (TERPRI TTY)
-          [MAPC Units (FUNCTION (LAMBDA (U)
+          (MAPC Units (FUNCTION (LAMBDA (U)
                                   (MAPC (PROPNAMES U)
                                         (FUNCTION (LAMBDA (SL)
                                                     (OR (MEMB SL SYSPROPS)
-                                                        (DefineSlot SL]
+                                                        (DefineSlot SL))))))))
           (MAPC Units (FUNCTION (LAMBDA (u)
                                   (AND (MEMB 'Slot (IsA u))
-                                       (DefineSlot u]
+                                       (DefineSlot u)))))))
     (CPRIN1 20 CRLF "There are " (LENGTH Units)
            " units, of which "
            (LENGTH SynthU)
@@ -1172,61 +1172,61 @@ February, 1981
     (ReportOn '(Heuristic MathOp MathObj ReprConcept)
            21)
     (CPRIN1 20 CRLF)
-    '!])
+    '!))
 
 (InsideOf
-  [LAMBDA (X L)                                              (* edited%: " 2-MAR-81 11:19")
+  (LAMBDA (X L)                                              (* edited%: " 2-MAR-81 11:19")
     (COND
        ((NULL L)
         NIL)
        ((EQ X L)
         T)
-       [(LISTP L)
+       ((LISTP L)
         (OR (InsideOf X (CAR L))
-            (InsideOf X (CDR L]
-       (T NIL])
+            (InsideOf X (CDR L))))
+       (T NIL))))
 
 (Instances
-  [LAMBDA (u)                                                (* edited%: " 7-Mar-81 15:42")
+  (LAMBDA (u)                                                (* edited%: " 7-Mar-81 15:42")
     (COND
        ((MEMB 'Heuristic (IsA u))
         'Applics)
        ((MEMB 'Op (IsA u))
         'Applics)
-       (T 'Examples])
+       (T 'Examples))))
 
 (Interestingness
-  [LAMBDA (u LookedThru)                                     (* edited%: "30-Apr-81 23:29")
+  (LAMBDA (u LookedThru)                                     (* edited%: "30-Apr-81 23:29")
     (COND
        ((MEMB u LookedThru)
         NIL)
-       [(CDR (SETQ LookedThru (CONS u LookedThru)))
+       ((CDR (SETQ LookedThru (CONS u LookedThru)))
         (ConsNN (GETPROP u 'Interestingness)
                (MapUnion (Generalizations u)
                       (FUNCTION (LAMBDA (SU)
-                                  (Interestingness SU LookedThru]
-       ([SETQ LookedThru (ConsNN (GETPROP u 'Interestingness)
+                                  (Interestingness SU LookedThru))))))
+       ((SETQ LookedThru (ConsNN (GETPROP u 'Interestingness)
                                 (MapUnion (Generalizations u)
                                        (FUNCTION (LAMBDA (SU)
-                                                   (Interestingness SU LookedThru]
+                                                   (Interestingness SU LookedThru))))))
                                                              (* this must be the initial call)
         (LIST 'LAMBDA '(u)
               (CONS 'OR LookedThru)))
        (T                                                    (* There were no Interestingness 
                                                              predicates aywhere along my ancestry)
-          NIL])
+          NIL))))
 
 (Interp1
-  [LAMBDA (r ArgU)                                           (* edited%: "15-FEB-81 14:13")
+  (LAMBDA (r ArgU)                                           (* edited%: "15-FEB-81 14:13")
                                                              (* assembles pieces of the heuristic 
                                                              rule r, and runs them on argument ArgU)
     (COND
        ((EVERY (SubSlots 'IfParts)
                'TrueIfItExists))
-       (T NIL])
+       (T NIL))))
 
 (Interp2
-  [LAMBDA (r ArgU)                                           (* edited%: "18-MAY-81 14:06")
+  (LAMBDA (r ArgU)                                           (* edited%: "18-MAY-81 14:06")
                                                              (* assembles pieces of the heuristic 
                                                              rule r, and runs them on argument ArgU)
                                                              (* This is a more "vocal" interpeter 
@@ -1252,16 +1252,16 @@ February, 1981
                     'TimeThen)
              (CPRIN1 68 CRLF "	All the ThenParts of " r (Abbrev r)
                     " have been successfully executed. " CRLF)
-             [SETQ TimRec (OR (OverallRecord r)
-                              (PUT r 'OverallRecord (CONS 0 0]
+             (SETQ TimRec (OR (OverallRecord r)
+                              (PUT r 'OverallRecord (CONS 0 0))))
              (RPLACD TimRec (ADD1 (CDR TimRec)))
              (RPLACA TimRec (IPLUS (CAR TimRec)
                                    TimeThen))
              T))
-       (T NIL])
+       (T NIL))))
 
 (Interp3
-  [LAMBDA (r ArgU ArgS)                                      (* edited%: "26-APR-81 18:33")
+  (LAMBDA (r ArgU ArgS)                                      (* edited%: "26-APR-81 18:33")
 
          (* assembles pieces of the heuristic rule r, and runs them on argument ArgU and 
          slot ArgS)
@@ -1289,16 +1289,16 @@ February, 1981
                                'TimeThen)
                         (CPRIN1 68 CRLF "	All the ThenParts of " r (Abbrev r)
                                " have been successfully executed. " CRLF)
-                        [SETQ TimRec (OR (OverallRecord r)
-                                         (PUT r 'OverallRecord (CONS 0 0]
+                        (SETQ TimRec (OR (OverallRecord r)
+                                         (PUT r 'OverallRecord (CONS 0 0))))
                         (RPLACD TimRec (ADD1 (CDR TimRec)))
                         (RPLACA TimRec (IPLUS (CAR TimRec)
                                               TimeThen))
                         T))
-                  (T NIL])
+                  (T NIL)))))
 
 (Interrupts
-  [LAMBDA NIL                                                (* edited%: "31-Mar-81 21:13")
+  (LAMBDA NIL                                                (* edited%: "31-Mar-81 21:13")
                                                              (* Control L for agenda length ;
                                                              Control N for numbe rof newly 
                                                              synthesized units)
@@ -1310,51 +1310,51 @@ February, 1981
            NIL)
     (INTERRUPTCHAR 22 '(PROGN (CPRIN1 -2 CRLF CRLF TAB "Verbosity level was " Verbosity 
                                      "; new value: ")
-                              ([LAMBDA (R)
+                              ((LAMBDA (R)
                                  (AND (FIXP R)
-                                      (SETQ Verbosity R]
+                                      (SETQ Verbosity R)))
                                (RATOM TTY)))
-           NIL])
+           NIL)))
 
 (IsAKindOf
-  [LAMBDA (s S)                                              (* edited%: "23-FEB-81 13:45")
+  (LAMBDA (s S)                                              (* edited%: "23-FEB-81 13:45")
     (OR (EQ s S)
-        (MEMB S (Generalizations s])
+        (MEMB S (Generalizations s)))))
 
 (IsAlto
-  [LAMBDA NIL                                            (* ; "Edited 30-Nov-2023 06:56 by seveno4")
+  (LAMBDA NIL                                            (* ; "Edited 30-Nov-2023 06:56 by seveno4")
     (AND (BOUNDP 'InfoW)
-         (OPENWP InfoW])
+         (OPENWP InfoW))))
 
 (IsSubsetOf
-  [LAMBDA (L M)                                              (* edited%: " 9-APR-81 15:26")
+  (LAMBDA (L M)                                              (* edited%: " 9-APR-81 15:26")
     (EVERY L (FUNCTION (LAMBDA (X)
-                         (MEMBER X M])
+                         (MEMBER X M))))))
 
 (KillSlot
-  [LAMBDA (s U1 V1 temp)                                     (* edited%: "11-MAR-81 15:17")
+  (LAMBDA (s U1 V1 temp)                                     (* edited%: "11-MAR-81 15:17")
     (AND (Slotp s)
          (OR U1 (AND (BOUNDP 'u)
                      (SETQ U1 u)))
          (PROG1 (COND
-                   ([NULL (OR V1 (SETQ V1 (APPLY* s U1]
+                   ((NULL (OR V1 (SETQ V1 (APPLY* s U1))))
                     (LIST U1 'had 'no s 'slot))
                    ((SETQ temp (CAR (Inverse s)))
-                    [MAPC V1 (FUNCTION (LAMBDA (e)
-                                         (REM1PROP e temp U1]
+                    (MAPC V1 (FUNCTION (LAMBDA (e)
+                                         (REM1PROP e temp U1))))
                     '(via Inverse))
                    ((SETQ temp (ToDelete s))
                     (APPLY* temp V1 s U1)
                     '(via ToDelete))
                    ((SETQ temp (ToDelete1 s))
-                    [MAPC V1 (FUNCTION (LAMBDA (e)
-                                         (APPLY* temp e s U1]
+                    (MAPC V1 (FUNCTION (LAMBDA (e)
+                                         (APPLY* temp e s U1))))
                     '(via ToDelete1))
                    (T NIL))
-                (REMPROP U1 s])
+                (REMPROP U1 s)))))
 
 (KillUnit
-  [LAMBDA (u)                                                (* edited%: "31-Mar-81 21:08")
+  (LAMBDA (u)                                                (* edited%: "31-Mar-81 21:08")
     (AND (Unitp u)
          (NOT (MEMB u NewU))
          (SETQ UndoKill (CONS (LIST u (COPY (GETPROPLIST u)))
@@ -1366,59 +1366,59 @@ February, 1981
     (MAPC (APPEND (GETPROPLIST u))
           (FUNCTION KillSlot)
           'CDDR)
-    [SETQ Agenda (SUBSET Agenda (FUNCTION (LAMBDA (ta)
-                                            (NEQ u (ExtractUnitName ta]
-    '%.])
+    (SETQ Agenda (SUBSET Agenda (FUNCTION (LAMBDA (ta)
+                                            (NEQ u (ExtractUnitName ta))))))
+    '%.))
 
 (KnownApplic
-  [LAMBDA (u a)                                              (* edited%: " 7-Mar-81 15:09")
+  (LAMBDA (u a)                                              (* edited%: " 7-Mar-81 15:09")
     (CAR (SOME (Applics u)
                (FUNCTION (LAMBDA (AP)
-                           (EQUAL a (CAR AP])
+                           (EQUAL a (CAR AP))))))))
 
 (LEQNN
-  [LAMBDA (x y)                                              (* edited%: "27-APR-81 16:25")
+  (LAMBDA (x y)                                              (* edited%: "27-APR-81 16:25")
     (AND (NUMBERP x)
          (NUMBERP y)
-         (LEQ x y])
+         (LEQ x y))))
 
 (LessWorth
-  [LAMBDA (U1 U2)                                            (* edited%: "10-MAR-81 16:57")
+  (LAMBDA (U1 U2)                                            (* edited%: "10-MAR-81 16:57")
     (COND
        ((NOT (Unitp U2))
         NIL)
        ((NOT (Unitp U1))
         T)
        (T (ILESSP (Worth U1)
-                 (Worth U2])
+                 (Worth U2))))))
 
 (ListifyIfNec
-  [LAMBDA (X)                                                (* edited%: "28-Feb-81 11:35")
+  (LAMBDA (X)                                                (* edited%: "28-Feb-81 11:35")
     (OR (LISTP X)
-        (CONS X NIL])
+        (CONS X NIL))))
 
 (ListsStarting
-  [LAMBDA (X L)                                              (* edited%: " 2-MAR-81 14:29")
+  (LAMBDA (X L)                                              (* edited%: " 2-MAR-81 14:29")
     (COND
        ((NLISTP L)
         NIL)
-       [(EQ X (CAR L))
+       ((EQ X (CAR L))
         (CONS L (MAPCONC (CDR L)
-                       'ListsStartingAux]
-       (T (MAPCONC L 'ListsStartingAux])
+                       'ListsStartingAux)))
+       (T (MAPCONC L 'ListsStartingAux)))))
 
 (ListsStartingAux
-  [LAMBDA (L)                                                (* edited%: " 2-MAR-81 14:29")
+  (LAMBDA (L)                                                (* edited%: " 2-MAR-81 14:29")
     (COND
        ((NLISTP L)
         NIL)
-       [(EQ X (CAR L))
+       ((EQ X (CAR L))
         (CONS L (MAPCONC (CDR L)
-                       'ListsStartingAux]
-       (T (MAPCONC L 'ListsStartingAux])
+                       'ListsStartingAux)))
+       (T (MAPCONC L 'ListsStartingAux)))))
 
 (MAP2EVERY
-  [LAMBDA (L FL)                                             (* edited%: "27-APR-81 22:24")
+  (LAMBDA (L FL)                                             (* edited%: "27-APR-81 22:24")
     (PROG NIL
       LOOP
           (COND
@@ -1431,19 +1431,19 @@ February, 1981
               (RETURN NIL))
              (T (SETQ FL (CDR FL))
                 (SETQ L (CDR L))
-                (GO LOOP])
+                (GO LOOP))))))
 
 (MAPAPPEND
-  [LAMBDA (L F)                                              (* edited%: " 3-MAR-81 17:11")
+  (LAMBDA (L F)                                              (* edited%: " 3-MAR-81 17:11")
     (COND
        ((NULL L)
         NIL)
        (T (NCONC (APPEND (APPLY* F (CAR L)))
                  (MAPAPPEND (CDR L)
-                        F])
+                        F))))))
 
 (MAXIMUM
-  [LAMBDA (L2 F2)                                            (* edited%: " 4-MAR-81 11:49")
+  (LAMBDA (L2 F2)                                            (* edited%: " 4-MAR-81 11:49")
                                                              (* The element of L2 having the 
                                                              highest F-value)
                                                              (* Currently, this presumes that L2 is 
@@ -1461,15 +1461,15 @@ February, 1981
                 (COND
                    ((NULL L2)
                     (RETURN M)))
-                [COND
+                (COND
                    ((IGREATERP (APPLY* F2 (CAR L2))
                            MV)
                     (SETQ M (CAR L2))
-                    (SETQ MV (APPLY* F2 (CAR L2]
-                (GO LOOP])
+                    (SETQ MV (APPLY* F2 (CAR L2)))))
+                (GO LOOP))))))
 
 (MAXIMUM2
-  [LAMBDA (L2 F2)                                            (* edited%: " 9-APR-81 13:58")
+  (LAMBDA (L2 F2)                                            (* edited%: " 9-APR-81 13:58")
                                                              (* An element e of L2, such that F2
                                                              (x,e) is never true)
                                                              (* Currently, this presumes that L2 is 
@@ -1486,19 +1486,19 @@ February, 1981
                 (COND
                    ((NULL L2)
                     (RETURN M)))
-                [COND
+                (COND
                    ((APPLY* F2 (CAR L2)
                            M)
-                    (SETQ M (CAR L2]
-                (GO LOOP])
+                    (SETQ M (CAR L2))))
+                (GO LOOP))))))
 
 (Map&Print
-  [LAMBDA (L F)                                              (* edited%: "11-MAR-81 12:02")
+  (LAMBDA (L F)                                              (* edited%: "11-MAR-81 12:02")
     (MAPC L (FUNCTION (LAMBDA (Z)
-                        (PRIN1 (APPLY* F Z])
+                        (PRIN1 (APPLY* F Z)))))))
 
 (MapApplics
-  [LAMBDA (u F NIt WhenToCheck MaxRealTime MaxSpace gen genf gena)
+  (LAMBDA (u F NIt WhenToCheck MaxRealTime MaxSpace gen genf gena)
                                                              (* edited%: "24-Mar-81 17:58")
                                                              (* This may have to generate examples, 
                                                              rather than merely calling Applics)
@@ -1509,87 +1509,87 @@ February, 1981
          (SETQ gena (ApplicGenArgs gen))
          (OR (FIXP NIt)
              (SETQ NIt 300))
-         [OR (FIXP WhenToCheck)
-             (SETQ WhenToCheck (ADD1 (IQUOTIENT NIt 10]
-         [OR (FIXP MaxRealTime)
+         (OR (FIXP WhenToCheck)
+             (SETQ WhenToCheck (ADD1 (IQUOTIENT NIt 10))))
+         (OR (FIXP MaxRealTime)
              (SETQ MaxRealTime (TIMES CurPri UserImpatience
-                                      (ADD1 (FIX (PLUS 0.5 (LOG (MAX 2 (ADD1 Verbosity]
+                                      (ADD1 (FIX (PLUS 0.5 (LOG (MAX 2 (ADD1 Verbosity)))))))))
          (OR MaxSpace (SETQ MaxSpace (Average CurPri 1000)))
          (SELECTQ (LENGTH gena)
-             (1 [for j from 1 to NIt until (OR (TakingTooLong j WhenToCheck MaxRealTime)
+             (1 (for j from 1 to NIt until (OR (TakingTooLong j WhenToCheck MaxRealTime)
                                                (TakingTooMuchSpace j WhenToCheck MaxSpace u
                                                       'Applics))
-                   do [PROGN (APPLY* F (EVAL (CAR gena)))
+                   do (PROGN (APPLY* F (EVAL (CAR gena)))
                              (SET (CAR gena)
                                   (APPLY* (CAR genf)
-                                         (EVAL (CAR gena] first (SET (CAR gena)
-                                                                     (CAR (ApplicGenInit gen])
+                                         (EVAL (CAR gena))))) first (SET (CAR gena)
+                                                                         (CAR (ApplicGenInit gen)))))
              (for j from 1 to NIt until (OR (TakingTooLong j WhenToCheck MaxRealTime)
                                             (TakingTooMuchSpace j WhenToCheck MaxSpace u 'Applics))
-                do [PROGN (APPLYEVAL F gena)
+                do (PROGN (APPLYEVAL F gena)
                           (MAP2C gena genf (FUNCTION (LAMBDA (Var Fn)
-                                                       (SET Var (APPLYEVAL Fn gena]
+                                                       (SET Var (APPLYEVAL Fn gena))))))
                 first (MAP2C gena (ApplicGenInit gen)
-                             'SET])
+                             'SET))))))
 
 (MapExamples
-  [LAMBDA (u F NIt WhenToCheck MaxRealTime MaxSpace gen genf gena)
+  (LAMBDA (u F NIt WhenToCheck MaxRealTime MaxSpace gen genf gena)
                                                              (* edited%: "24-Mar-81 21:24")
                                                              (* This may have to generate examples, 
                                                              rather than merely calling Applics)
     (COND
-       [[AND (SETQ gen (Generator u))
+       ((AND (SETQ gen (Generator u))
              (SETQ genf (GenBuild gen))
              (SETQ gena (GenArgs gen))
              (OR (FIXP NIt)
                  (SETQ NIt 1000))
-             [OR (FIXP WhenToCheck)
-                 (SETQ WhenToCheck (ADD1 (IQUOTIENT NIt 10]
-             [OR (FIXP MaxRealTime)
+             (OR (FIXP WhenToCheck)
+                 (SETQ WhenToCheck (ADD1 (IQUOTIENT NIt 10))))
+             (OR (FIXP MaxRealTime)
                  (SETQ MaxRealTime (TIMES CurPri UserImpatience
-                                          (ADD1 (FIX (PLUS 0.5 (LOG (MAX 2 (ADD1 Verbosity]
-             (OR MaxSpace (SETQ MaxSpace (Average CurPri 500]
+                                          (ADD1 (FIX (PLUS 0.5 (LOG (MAX 2 (ADD1 Verbosity)))))))))
+             (OR MaxSpace (SETQ MaxSpace (Average CurPri 500))))
         (SELECTQ (LENGTH gena)
-            (1 [for j from 1 to NIt until (OR (TakingTooLong j WhenToCheck MaxRealTime)
+            (1 (for j from 1 to NIt until (OR (TakingTooLong j WhenToCheck MaxRealTime)
                                               (TakingTooMuchSpace j WhenToCheck MaxSpace u
                                                      'Examples))
-                  do [PROGN (APPLY* F (EVAL (CAR gena)))
+                  do (PROGN (APPLY* F (EVAL (CAR gena)))
                             (SET (CAR gena)
                                  (APPLY* (CAR genf)
-                                        (EVAL (CAR gena] first (SET (CAR gena)
-                                                                    (CAR (GenInit gen])
+                                        (EVAL (CAR gena))))) first (SET (CAR gena)
+                                                                        (CAR (GenInit gen)))))
             (for j from 1 to NIt until (OR (TakingTooLong j WhenToCheck MaxRealTime)
                                            (TakingTooMuchSpace j WhenToCheck MaxSpace u 'Examples))
-               do [PROGN (APPLYEVAL F gena)
+               do (PROGN (APPLYEVAL F gena)
                          (MAP2C gena genf (FUNCTION (LAMBDA (Var Fn)
-                                                      (SET Var (APPLYEVAL Fn gena]
+                                                      (SET Var (APPLYEVAL Fn gena))))))
                first (MAP2C gena (GenInit gen)
-                            'SET]
+                            'SET))))
        (T (MAPC (Examples u)
-                F])
+                F)))))
 
 (MapUnion
-  [LAMBDA (L F sofar)                                        (* edited%: "26-MAR-81 13:31")
+  (LAMBDA (L F sofar)                                        (* edited%: "26-MAR-81 13:31")
                                                              (* like MAPCONC, but instead of 
                                                              NCONCing the results we simply, 
                                                              nondestructive, union them)
-    [MAPC L (FUNCTION (LAMBDA (Q)
+    (MAPC L (FUNCTION (LAMBDA (Q)
                         (SETQ sofar (UNION (APPLY* F Q)
-                                           sofar]
-    sofar])
+                                           sofar)))))
+    sofar))
 
 (MergeProps
-  [LAMBDA (L M)                                              (* edited%: "11-MAR-81 15:12")
+  (LAMBDA (L M)                                              (* edited%: "11-MAR-81 15:12")
                                                              (* L and M are each property lists)
     (MAP2C M (CDR M)
-           [FUNCTION (LAMBDA (P V)
+           (FUNCTION (LAMBDA (P V)
                        (COND
                           ((NOT (Slotp P))
                            NIL)
-                          [(LISTGET L P)
+                          ((LISTGET L P)
                            (LISTPUT L (UNION (ListifyIfNec (LISTGET L P))
-                                             (ListifyIfNec V]
-                          (T (SETQ L (NCONC L (LIST P V]
+                                             (ListifyIfNec V))))
+                          (T (SETQ L (NCONC L (LIST P V)))))))
            'CDDR)                                            (* (NCONC (MAPCON L (FUNCTION
                                                              (LAMBDA (LT) ((LAMBDA
                                                              (GL) (COND (GL (RPLACA GL
@@ -1599,11 +1599,11 @@ February, 1981
                                                              (LIST (CAR LT) (CADR LT)))))
                                                              (CDR (MEMB (CAR LT) M)))))
                                                              (QUOTE CDDR)) M))
-    L])
+    L))
 
 (MergeTasks
-  [LAMBDA (L M)                                          (* ; "Edited 29-Nov-2023 07:22 by seveno4")
-    (PROG1 (MERGE [SUBSET L (FUNCTION (LAMBDA (TaskToBeAdded TaskAlreadyThere NewReas)
+  (LAMBDA (L M)                                          (* ; "Edited 29-Nov-2023 07:22 by seveno4")
+    (PROG1 (MERGE (SUBSET L (FUNCTION (LAMBDA (TaskToBeAdded TaskAlreadyThere NewReas)
                                         (COND
                                            ((NOT (WorthWorkingOn TaskToBeAdded))
                                             NIL)
@@ -1614,11 +1614,11 @@ February, 1981
                                                                           (CurSup TaskToBeAdded)
                                                                           Agenda))
                                                              (* Then it is already on the agenda!)
-                                            [NCONC (ExtractReasons TaskAlreadyThere)
+                                            (NCONC (ExtractReasons TaskAlreadyThere)
                                                    (SETQ NewReas (SetDifference (ExtractReasons
                                                                                  TaskToBeAdded)
                                                                         (ExtractReasons 
-                                                                               TaskAlreadyThere]
+                                                                               TaskAlreadyThere))))
                                             (CPRIN1 87 CRLF 
                                                    "Ha! this task was ALREADY on the agenda: "
                                                    (WaxOn TaskToBeAdded)
@@ -1632,26 +1632,26 @@ February, 1981
                                             (CPRIN1 87 (ExtractPriority TaskAlreadyThere)
                                                    "." CRLF)
                                             NIL)
-                                           (T T]
+                                           (T T)))))
                   M
                   'OrderTasks)
         (AND (IsAlto)
-             (SnazzyAgenda)))])
+             (SnazzyAgenda)))))
 
 (MoreSpecific
-  [LAMBDA (u v)                                              (* edited%: " 9-APR-81 14:19")
+  (LAMBDA (u v)                                              (* edited%: " 9-APR-81 14:19")
     (COND
        ((MEMB u (GETPROP v 'Generalizations))
         NIL)
        ((MEMB v (GETPROP u 'Generalizations))
         T)
-       ([SOME (SubSlots 'Generalizations)
+       ((SOME (SubSlots 'Generalizations)
               (FUNCTION (LAMBDA (s)
-                          (MEMB u (GETPROP v s]
+                          (MEMB u (GETPROP v s)))))
         NIL)
-       ([SOME (SubSlots 'Generalizations)
+       ((SOME (SubSlots 'Generalizations)
               (FUNCTION (LAMBDA (s)
-                          (MEMB v (GETPROP u s]
+                          (MEMB v (GETPROP u s)))))
         T)
        ((MEMB u (IsA v))
         NIL)
@@ -1660,23 +1660,23 @@ February, 1981
        (T                                                    (* I give up. Pretend that the bigger 
                                                              one is more specific)
           (IGREATERP (LENGTH (GETPROPLIST u))
-                 (LENGTH (GETPROPLIST v])
+                 (LENGTH (GETPROPLIST v)))))))
 
 (MostSpecific
-  [LAMBDA (L)                                                (* edited%: " 9-APR-81 14:25")
-    (MAXIMUM2 L 'MoreSpecific])
+  (LAMBDA (L)                                                (* edited%: " 9-APR-81 14:25")
+    (MAXIMUM2 L 'MoreSpecific)))
 
 (MyTime
-  [LAMBDA (ex var val)                                       (* edited%: "30-MAR-81 15:50")
-    [SET (OR var 'TimedExpr)
+  (LAMBDA (ex var val)                                       (* edited%: "30-MAR-81 15:50")
+    (SET (OR var 'TimedExpr)
          (MINUS (IDIFFERENCE (CLOCK 2)
                        (PROGN (SETQ val (EVAL ex))
-                              (CLOCK 2]
-    val])
+                              (CLOCK 2)))))
+    val))
 
 (NU
-  [LAMBDA (N NOLD fullflg)                                   (* edited%: "22-APR-81 14:19")
-    (PROG1 [COND
+  (LAMBDA (N NOLD fullflg)                                   (* edited%: "22-APR-81 14:19")
+    (PROG1 (COND
               ((NOT (LITATOM N))
                (PRIN1 "Must be atomic unit name! You typed: " TTY)
                N)
@@ -1685,18 +1685,18 @@ February, 1981
                N)
               ((MEMB NOLD Units)
                (SETQ Units (CONS N Units))
-               [SETPROPLIST N (MergeProps (GETPROPLIST N)
-                                     (SUBST N NOLD (GETPROPLIST NOLD]
+               (SETPROPLIST N (MergeProps (GETPROPLIST N)
+                                     (SUBST N NOLD (GETPROPLIST NOLD))))
                (SETQ WarnSlots NIL)
-               [MAPC (PROPNAMES N)
+               (MAPC (PROPNAMES N)
                      (FUNCTION (LAMBDA (P)
                                  (COND
-                                    [(DontCopy P)
+                                    ((DontCopy P)
                                      (COND
                                         (fullflg (SETQ WarnSlots (CONS P WarnSlots)))
-                                        (T (REMPROP N P]
+                                        (T (REMPROP N P))))
                                     ((DoubleCheck P)
-                                     (SETQ WarnSlots (CONS P WarnSlots]
+                                     (SETQ WarnSlots (CONS P WarnSlots)))))))
                (COND
                   (WarnSlots (CPRIN1 0 CRLF "Warning: doublecheck the values stored in: " WarnSlots 
                                     CRLF CRLF)))
@@ -1707,21 +1707,21 @@ February, 1981
                  (PUT N 'Worth 500)
                  (EVAL (LIST 'EU N))
                  (AddInv N)
-                 (LIST N 'HasBeenInitialized]
-           (DefineIfSlot N])
+                 (LIST N 'HasBeenInitialized)))
+           (DefineIfSlot N))))
 
 (NUnitp
-  [LAMBDA (u)                                                (* edited%: "28-FEB-81 18:36")
-    (NOT (Unitp u])
+  (LAMBDA (u)                                                (* edited%: "28-FEB-81 18:36")
+    (NOT (Unitp u))))
 
 (NearnessTo
-  [LAMBDA (N X)                                              (* edited%: "24-Feb-81 22:21")
+  (LAMBDA (N X)                                              (* edited%: "24-Feb-81 22:21")
                                                              (* This certainly works for nearness 
                                                              of N to 0.1)
-    (DIFFERENCE 1000 (TIMES 100000 (SQUARE (DIFFERENCE N X])
+    (DIFFERENCE 1000 (TIMES 100000 (SQUARE (DIFFERENCE N X))))))
 
 (NewNam
-  [LAMBDA (A)                                                (* edited%: "25-FEB-81 18:52")
+  (LAMBDA (A)                                                (* edited%: "25-FEB-81 18:52")
     (PROG (N M)
           (SETQ N 1)
       NLOOP
@@ -1730,10 +1730,10 @@ February, 1981
              ((Unitp M)
               (SETQ N (ADD1 N))
               (GO NLOOP))
-             (T (RETURN M])
+             (T (RETURN M))))))
 
 (NoRepeatsIn
-  [LAMBDA (L)                                                (* edited%: "23-Mar-81 10:46")
+  (LAMBDA (L)                                                (* edited%: "23-Mar-81 10:46")
     (COND
        ((NULL L)
         T)
@@ -1742,32 +1742,32 @@ February, 1981
        ((MEMBER (CAR L)
                (CDR L))
         NIL)
-       (T (NoRepeatsIn (CDR L])
+       (T (NoRepeatsIn (CDR L))))))
 
 (OKBinPreds
-  [LAMBDA (u)                                                (* edited%: "27-APR-81 21:07")
+  (LAMBDA (u)                                                (* edited%: "27-APR-81 21:07")
     (COND
        ((EQ u OldKBPu)
         OldKBPv)
        (T (SETQ OldKBPu u)
           (SETQ OldKBPv (SUBSET (Examples 'BinaryPred)
                                (FUNCTION (LAMBDA (bp)
-                                           (AND [OR (HasHighWorth bp)
-                                                    (MEMB bp (IntExamples 'BinaryPred]
+                                           (AND (OR (HasHighWorth bp)
+                                                    (MEMB bp (IntExamples 'BinaryPred)))
                                                 (LEQNN (CAR (Rarity bp))
                                                        0.3)
                                                 (EVERY (Domain bp)
                                                        'Defn)
                                                 (RunDefn (CAR (Domain bp))
-                                                       u])
+                                                       u))))))))))
 
 (OrderTasks
-  [LAMBDA (T1 T2)                                            (* edited%: " 2-MAR-81 18:16")
+  (LAMBDA (T1 T2)                                            (* edited%: " 2-MAR-81 18:16")
     (IGREATERP (CAR T1)
-           (CAR T2])
+           (CAR T2))))
 
 (PRINBOL
-  [LAMBDA (s v f SepLnFlg xp)                                (* edited%: "18-MAY-81 18:22")
+  (LAMBDA (s v f SepLnFlg xp)                                (* edited%: "18-MAY-81 18:22")
                                                              (* This prints s %: (in bold) and then 
                                                              v (indented))
     (DSPBOLD 'ON f)
@@ -1775,20 +1775,20 @@ February, 1981
     (PRIN1 '|: | f)
     (DSPBOLD 'OFF f)
     (COND
-       [SepLnFlg (SETQ xp (DSPXPOSITION NIL f))
+       (SepLnFlg (SETQ xp (DSPXPOSITION NIL f))
               (MAPC v (FUNCTION (LAMBDA (ve)
                                   (DSPXPOSITION xp f)
                                   (PRINDEN ve f)
-                                  (PRINDEN CRLF f]
+                                  (PRINDEN CRLF f)))))
        (T (PRINDEN v f)))
-    (PRIN1 CRLF f])
+    (PRIN1 CRLF f)))
 
 (PRINDEN
-  [LAMBDA (s f)                                          (* ; "Edited 29-Nov-2023 06:18 by seveno4")
-    (PRIN1 s f])
+  (LAMBDA (s f)                                          (* ; "Edited 29-Nov-2023 06:18 by seveno4")
+    (PRIN1 s f)))
 
 (PRINTASK
-  [LAMBDA (z fil)                                            (* edited%: "18-MAY-81 15:06")
+  (LAMBDA (z fil)                                            (* edited%: "18-MAY-81 15:06")
     (PRIN1 (ExtractPriority z)
            fil)
     (PRIN1 SPACE fil)
@@ -1797,7 +1797,7 @@ February, 1981
     (PRIN1 SPACE fil)
     (PRIN1 (ExtractSlotName z)
            fil)
-    [MAPC (CurSup z)
+    (MAPC (CurSup z)
           (FUNCTION (LAMBDA (s)
                       (SELECTQ (CAR s)
                           ((SlotToUse SlotToChange) 
@@ -1810,27 +1810,27 @@ February, 1981
                                           (CADR s))
                                          (T (CDR s)))
                                       fil))
-                          (PRIN1 '|...| fil]
+                          (PRIN1 '|...| fil)))))
     (PRIN1 CRLF fil)
     (PRIN1 TAB fil)
     (PRIN1 (LENGTH (ExtractReasons z))
            fil)
     (PRIN1 SPACE fil)
     (PRIN1 'Reasons fil)
-    (PRIN1 CRLF fil])
+    (PRIN1 CRLF fil)))
 
 (PU
-  [LAMBDA (u ns)                                             (* edited%: "18-MAY-81 15:25")
-    [COND
+  (LAMBDA (u ns)                                             (* edited%: "18-MAY-81 15:25")
+    (COND
        ((NUMBERP u)
-        (SETQ u (CAR (NTH NewU u]
+        (SETQ u (CAR (NTH NewU u)))))
     (TERPRI)
     (PRIN1 u)
     (PRIN1 '%:)
     (TERPRI)
     (TERPRI)
     (MAP (GETPROPLIST u)
-         [FUNCTION (LAMBDA (PL)
+         (FUNCTION (LAMBDA (PL)
                      (COND
                         ((Slotp (CAR PL))
                          (PRIN1 (CAR PL))
@@ -1838,32 +1838,32 @@ February, 1981
                          (PRINTDEF (CADR PL))
                          (TERPRI))
                         (T (SETQ ns (CONS (CAR PL)
-                                          ns]
+                                          ns))))))
          'CDDR)
     (AND ns (CPRIN1 -1 "
 Plus " (LENGTH ns)
                    " properties which are not slot names: " ns CRLF))
     (TERPRI)
-    u])
+    u))
 
 (PU2
-  [LAMBDA (u f ns sn)                                        (* edited%: "18-MAY-81 15:25")
-    [COND
+  (LAMBDA (u f ns sn)                                        (* edited%: "18-MAY-81 15:25")
+    (COND
        ((NUMBERP u)
-        (SETQ u (CAR (NTH NewU u]
+        (SETQ u (CAR (NTH NewU u)))))
     (DSPBOLD 'ON f)
     (PRIN1 u f)
     (PRIN1 '%: f)
     (PRIN1 CRLF f)
     (PRIN1 CRLF f)
     (DSPBOLD 'OFF f)
-    [MAPC (PROPNAMES u)
+    (MAPC (PROPNAMES u)
           (FUNCTION (LAMBDA (s)
                       (COND
                          ((Unitp s)
                           (SETQ sn (CONS s sn)))
-                         (T (SETQ ns (CONS s ns]
-    [AND (BOUNDP 'CurSlot)
+                         (T (SETQ ns (CONS s ns)))))))
+    (AND (BOUNDP 'CurSlot)
          (PROGN (DSPBOLD 'ON f)
                 (PRIN1 CurSlot f)
                 (PRIN1 ": " f)
@@ -1871,8 +1871,8 @@ Plus " (LENGTH ns)
                 (PRIN1 (GETPROP u CurSlot)
                        f)
                 (PRIN1 CRLF f)
-                (SETQ sn (DREMOVE CurSlot sn]
-    [MAPC (APPEND sn)
+                (SETQ sn (DREMOVE CurSlot sn))))
+    (MAPC (APPEND sn)
           (FUNCTION (LAMBDA (s)
                       (AND (EQ 'Text (DataType s))
                            (PROGN (DSPBOLD 'ON f)
@@ -1882,8 +1882,8 @@ Plus " (LENGTH ns)
                                   (PRINDEN (GETPROP u s)
                                          f)
                                   (PRIN1 CRLF f)
-                                  (SETQ sn (DREMOVE s sn]
-    [MAPC (APPEND sn)
+                                  (SETQ sn (DREMOVE s sn)))))))
+    (MAPC (APPEND sn)
           (FUNCTION (LAMBDA (s)
                       (AND (ATOM (GETPROP u s))
                            (PROGN (DSPBOLD 'ON f)
@@ -1893,13 +1893,13 @@ Plus " (LENGTH ns)
                                   (PRINDEN (GETPROP u s)
                                          f)
                                   (PRIN1 CRLF f)
-                                  (SETQ sn (DREMOVE s sn]
-    [MAPC (APPEND sn)
+                                  (SETQ sn (DREMOVE s sn)))))))
+    (MAPC (APPEND sn)
           (FUNCTION (LAMBDA (s)
                       (AND (EVERY (GETPROP u s)
                                   'ATOM)
-                           [OR [NOT (ATOM (CDR (GETPROP u s]
-                               (NULL (CDR (GETPROP u s]
+                           (OR (NOT (ATOM (CDR (GETPROP u s))))
+                               (NULL (CDR (GETPROP u s))))
                            (PROGN (DSPBOLD 'ON f)
                                   (PRIN1 s f)
                                   (PRIN1 ": " f)
@@ -1909,19 +1909,19 @@ Plus " (LENGTH ns)
                                            (PRINDEN (GETPROP u s)
                                                   f))
                                       (PROGN (PRIN1 '%( f)
-                                             [MAP2C '(1 2 3 4 5)
+                                             (MAP2C '(1 2 3 4 5)
                                                     (GETPROP u s)
                                                     (FUNCTION (LAMBDA (k x)
                                                                 (PRINDEN x f)
-                                                                (PRINDEN SPACE f]
+                                                                (PRINDEN SPACE f))))
                                              (PRINDEN '+ f)
                                              (PRINDEN (DIFFERENCE (LENGTH (GETPROP u s))
                                                              5)
                                                     f)
                                              (PRINDEN '| more)| f)))
                                   (PRIN1 CRLF f)
-                                  (SETQ sn (DREMOVE s sn]
-    [MAPC (APPEND sn)
+                                  (SETQ sn (DREMOVE s sn)))))))
+    (MAPC (APPEND sn)
           (FUNCTION (LAMBDA (s)
                       (AND (EVERY (GETPROP u s)
                                   'ATOM)
@@ -1934,18 +1934,18 @@ Plus " (LENGTH ns)
                                            (PRINDEN (GETPROP u s)
                                                   f))
                                       (PROGN (PRIN1 '%( f)
-                                             [MAP2C '(1 2 3 4 5)
+                                             (MAP2C '(1 2 3 4 5)
                                                     (GETPROP u s)
                                                     (FUNCTION (LAMBDA (k x)
                                                                 (PRINDEN x f)
-                                                                (PRINDEN SPACE f]
+                                                                (PRINDEN SPACE f))))
                                              (PRINDEN '+ f)
                                              (PRINDEN (DIFFERENCE (LENGTH (GETPROP u s))
                                                              5)
                                                     f)
                                              (PRINDEN '| more)| f)))
                                   (PRIN1 CRLF f)
-                                  (SETQ sn (DREMOVE s sn]
+                                  (SETQ sn (DREMOVE s sn)))))))
     (AND sn (PROGN (PRIN1 "
 Plus " f)
                    (PRIN1 (LENGTH sn)
@@ -1961,59 +1961,59 @@ Plus " f)
                    (PRIN1 ns f)
                    (PRIN1 CRLF f)))
     (PRIN1 CRLF f)
-    u])
+    u))
 
 (Percentify
-  [LAMBDA (N)                                                (* edited%: " 2-MAR-81 17:59")
+  (LAMBDA (N)                                                (* edited%: " 2-MAR-81 17:59")
     (CONCAT (FIX (TIMES 100 (PLUS N 0.005)))
-           '"%%"])
+           '"%%")))
 
 (PunishSeverely
-  [LAMBDA (u)                                                (* edited%: "18-MAR-81 16:32")
+  (LAMBDA (u)                                                (* edited%: "18-MAR-81 16:32")
     (AND (Unitp u)
-         (PUT u 'Worth (Half (Worth u])
+         (PUT u 'Worth (Half (Worth u))))))
 
 (Quoted
-  [LAMBDA (X)                                                (* edited%: " 2-MAR-81 11:34")
+  (LAMBDA (X)                                                (* edited%: " 2-MAR-81 11:34")
     (AND (LISTP X)
          (EQ (CAR X)
-             'QUOTE])
+             'QUOTE))))
 
 (REM1PROP
-  [LAMBDA (a p v)                                            (* edited%: "18-MAR-81 11:13")
+  (LAMBDA (a p v)                                            (* edited%: "18-MAR-81 11:13")
     (OR (NOT (LITATOM a))
         (NOT (LITATOM p))
         (AND (MEMB v (GETPROP a p))
              (DREMOVE v (GETPROP a p)))
         (DREMOVE v (APPLY* p a))
-        (REMPROP a p])
+        (REMPROP a p))))
 
 (RandomChoose
-  [LAMBDA (L)                                                (* edited%: "25-MAR-81 12:15")
-    [AND (LITATOM L)
+  (LAMBDA (L)                                                (* edited%: "25-MAR-81 12:15")
+    (AND (LITATOM L)
          (MEMB 'Set (IsA L))
          (SETQ L (OR (Examples L)
-                     (GatherExamples L]
-    (CAR (NTH L (RAND 1 (LENGTH L])
+                     (GatherExamples L))))
+    (CAR (NTH L (RAND 1 (LENGTH L))))))
 
 (RandomP
-  [LAMBDA NIL                                                (* edited%: "23-FEB-81 14:25")
-    (EQ 1 (RAND 0 1])
+  (LAMBDA NIL                                                (* edited%: "23-FEB-81 14:25")
+    (EQ 1 (RAND 0 1))))
 
 (RandomPair
-  [LAMBDA (L Rel)                                            (* edited%: "24-Apr-81 02:06")
-    (RandomChoose (AllPairs L Rel])
+  (LAMBDA (L Rel)                                            (* edited%: "24-Apr-81 02:06")
+    (RandomChoose (AllPairs L Rel))))
 
 (RandomSubset
-  [LAMBDA (L)                                                (* edited%: "25-MAR-81 12:18")
-    [AND (LITATOM L)
+  (LAMBDA (L)                                                (* edited%: "25-MAR-81 12:18")
+    (AND (LITATOM L)
          (MEMB 'Set (IsA L))
          (SETQ L (OR (Examples L)
-                     (GatherExamples L]
-    (SUBSET L 'RandomP])
+                     (GatherExamples L))))
+    (SUBSET L 'RandomP)))
 
 (RandomSubst
-  [LAMBDA (X Y Z NTries tes)                                 (* edited%: "20-Mar-81 00:38")
+  (LAMBDA (X Y Z NTries tes)                                 (* edited%: "20-Mar-81 00:38")
     (OR NTries (SETQ NTries 4))
     (COND
        ((ZEROP NTries)
@@ -2021,10 +2021,10 @@ Plus " f)
        ((EQUAL (SETQ tes (RandomSubst* X Y Z))
                Z)
         (RandomSubst X Y Z (SUB1 NTries)))
-       (T tes])
+       (T tes))))
 
 (RandomSubst*
-  [LAMBDA (X Y Z)                                            (* edited%: "20-Mar-81 00:26")
+  (LAMBDA (X Y Z)                                            (* edited%: "20-Mar-81 00:26")
     (COND
        ((EQUAL X Y)
         Z)
@@ -2036,10 +2036,10 @@ Plus " f)
        ((NLISTP Z)
         Z)
        (T (CONS (RandomSubst* X Y (CAR Z))
-                (RandomSubst* X Y (CDR Z])
+                (RandomSubst* X Y (CDR Z)))))))
 
 (RepeatsIn
-  [LAMBDA (L)                                                (* edited%: "22-APR-81 14:30")
+  (LAMBDA (L)                                                (* edited%: "22-APR-81 14:30")
     (COND
        ((NULL L)
         NIL)
@@ -2048,10 +2048,10 @@ Plus " f)
        ((MEMBER (CAR L)
                (CDR L))
         T)
-       (T (RepeatsIn (CDR L])
+       (T (RepeatsIn (CDR L))))))
 
 (ReportOn
-  [LAMBDA (L N)                                              (* edited%: "28-Mar-81 11:40")
+  (LAMBDA (L N)                                              (* edited%: "28-Mar-81 11:40")
     (COND
        ((LITATOM L)
         (SETQ L (LIST L)))
@@ -2069,19 +2069,19 @@ Plus " f)
                                                       'of
                                                       'slots))
                                                (T " "))
-                               CRLF])
+                               CRLF))))))
 
 (ResetPri
-  [LAMBDA (OldT NewP OldP NewR)                              (* edited%: "23-Mar-81 15:49")
+  (LAMBDA (OldT NewP OldP NewR)                              (* edited%: "23-Mar-81 15:49")
 
          (* Given an old task OldT with priority OldP we have added it anew to the agenda 
          with priority NewP and brand new reasons NewR)
 
     (RPLACA OldT (MIN 1000 (IPLUS (MAX OldP NewP)
-                                  (MAX 10 (ITIMES 100 (LENGTH NewR])
+                                  (MAX 10 (ITIMES 100 (LENGTH NewR))))))))
 
 (RuleTakingTooLong
-  [LAMBDA NIL                                                (* edited%: "27-APR-81 15:09")
+  (LAMBDA NIL                                                (* edited%: "27-APR-81 15:09")
     (OR (AND (IGEQ (CLOCK 0)
                    MaxRuleTime)
              (CPRIN1 51 " Hmmm...   this rule is taking too long!  On to better rules!" CRLF)
@@ -2091,12 +2091,12 @@ Plus " f)
              (CPRIN1 51 
                     " Grumble...   this rule is taking too much space!  On to less expansive rules!"
                     CRLF)
-             T])
+             T))))
 
 (RunAlg
-  [LAMBDA (f a b c d e val)                                  (* edited%: "27-APR-81 23:01")
-    [COND
-       [(AND (SETQ val (COND
+  (LAMBDA (f a b c d e val)                                  (* edited%: "27-APR-81 23:01")
+    (COND
+       ((AND (SETQ val (COND
                           ((Alg f)
                            (APPLY* (Alg f)
                                   a b c d e))
@@ -2106,26 +2106,26 @@ Plus " f)
              (NEQ val 'Failed))
         (OR (Rarity f)
             (PUT f 'Rarity (LIST 0 0 0)))
-        [RPLACA (CDR (Rarity f))
-               (ADD1 (CADR (Rarity f]
+        (RPLACA (CDR (Rarity f))
+               (ADD1 (CADR (Rarity f))))
         (RPLACA (Rarity f)
                (QUOTIENT (FLOAT (CADR (Rarity f)))
                       (IPLUS (CADR (Rarity f))
-                             (CADDR (Rarity f]
+                             (CADDR (Rarity f))))))
        (T (OR (Rarity f)
               (PUT f 'Rarity (LIST 0 0 0)))
-          [RPLACA (CDDR (Rarity f))
-                 (ADD1 (CADDR (Rarity f]
+          (RPLACA (CDDR (Rarity f))
+                 (ADD1 (CADDR (Rarity f))))
           (RPLACA (Rarity f)
                  (QUOTIENT (FLOAT (CADR (Rarity f)))
                         (IPLUS (CADR (Rarity f))
-                               (CADDR (Rarity f]
-    val])
+                               (CADDR (Rarity f)))))))
+    val))
 
 (RunDefn
-  [LAMBDA (f a b c d e val)                                  (* edited%: "27-APR-81 23:01")
-    [COND
-       [(AND (SETQ val (COND
+  (LAMBDA (f a b c d e val)                                  (* edited%: "27-APR-81 23:01")
+    (COND
+       ((AND (SETQ val (COND
                           ((Defn f)
                            (APPLY* (Defn f)
                                   a b c d e))
@@ -2135,33 +2135,33 @@ Plus " f)
              (NEQ val 'Failed))
         (OR (Rarity f)
             (PUT f 'Rarity (LIST 0 0 0)))
-        [RPLACA (CDR (Rarity f))
-               (ADD1 (CADR (Rarity f]
+        (RPLACA (CDR (Rarity f))
+               (ADD1 (CADR (Rarity f))))
         (RPLACA (Rarity f)
                (QUOTIENT (FLOAT (CADR (Rarity f)))
                       (IPLUS (CADR (Rarity f))
-                             (CADDR (Rarity f]
+                             (CADDR (Rarity f))))))
        (T (OR (Rarity f)
               (PUT f 'Rarity (LIST 0 0 0)))
-          [RPLACA (CDDR (Rarity f))
-                 (ADD1 (CADDR (Rarity f]
+          (RPLACA (CDDR (Rarity f))
+                 (ADD1 (CADDR (Rarity f))))
           (RPLACA (Rarity f)
                  (QUOTIENT (FLOAT (CADR (Rarity f)))
                         (IPLUS (CADR (Rarity f))
-                               (CADDR (Rarity f]
-    val])
+                               (CADDR (Rarity f)))))))
+    val))
 
 (SOME1
-  [LAMBDA (L F)                                              (* edited%: " 1-May-81 01:14")
+  (LAMBDA (L F)                                              (* edited%: " 1-May-81 01:14")
     (COND
        ((NULL L)
         NIL)
        ((APPLY* F (CAR L)))
        (T (SOME1 (CDR L)
-                 F])
+                 F)))))
 
 (SOS
-  [LAMBDA NIL                                                (* edited%: "18-MAR-81 11:46")
+  (LAMBDA NIL                                                (* edited%: "18-MAR-81 11:46")
     (COND
        ((DRIBBLEFILE)
         (CPRIN1 -1 "Closing " (DRIBBLEFILE)
@@ -2171,14 +2171,14 @@ Plus " f)
     (DRIBBLE (PACK* 'TRACE. (Date2)))
     (CPRIN1 -1 (DRIBBLEFILE)
            " is now open." CRLF)
-    (DATE])
+    (DATE)))
 
 (SQUARE
-  [LAMBDA (X)                                                (* edited%: "24-Feb-81 22:19")
-    (TIMES X X])
+  (LAMBDA (X)                                                (* edited%: "24-Feb-81 22:19")
+    (TIMES X X)))
 
 (START
-  [LAMBDA (EternalFlg)                                   (* ; "Edited 29-Nov-2023 14:53 by seveno4")
+  (LAMBDA (EternalFlg)                                   (* ; "Edited 29-Nov-2023 14:53 by seveno4")
                                                              (* edited%: "18-MAY-81 14:58")
     (CycleThruAgenda)
     (PROG (UnitsFocusedOn UU)
@@ -2207,76 +2207,76 @@ Should I continue with another pass? ")
                      BitAgenda)
               (BITBLT BitAgenda 0 0 InfoW 406 0))
              (T NIL))
-          (GO LOOP])
+          (GO LOOP))))
 
 (SelfIntersect
-  [LAMBDA (X)                                                (* edited%: "19-FEB-81 16:36")
-    (INTERSECTION X X])
+  (LAMBDA (X)                                                (* edited%: "19-FEB-81 16:36")
+    (INTERSECTION X X)))
 
 (SetDiff
-  [LAMBDA (L M)                                              (* edited%: "23-FEB-81 19:03")
+  (LAMBDA (L M)                                              (* edited%: "23-FEB-81 19:03")
                                                              (* presumes that L and M are lists of 
                                                              atoms. Nondestructive)
     (SUBSET L (FUNCTION (LAMBDA (v)
-                          (NOT (MEMB v M])
+                          (NOT (MEMB v M)))))))
 
 (SetDifference
-  [LAMBDA (L M)                                              (* edited%: "27-Mar-81 21:43")
+  (LAMBDA (L M)                                              (* edited%: "27-Mar-81 21:43")
                                                              (* presumes that L and M are lists of 
                                                              atoms. Nondestructive)
     (SUBSET L (FUNCTION (LAMBDA (v)
-                          (NOT (MEMBER v M])
+                          (NOT (MEMBER v M)))))))
 
 (SetIntersect
-  [LAMBDA (L M)                                              (* edited%: "11-MAR-81 11:44")
+  (LAMBDA (L M)                                              (* edited%: "11-MAR-81 11:44")
     (SUBSET L (FUNCTION (LAMBDA (Z)
-                          (MEMB Z M])
+                          (MEMB Z M))))))
 
 (SetUnion
-  [LAMBDA (s1 s2)                                            (* edited%: "22-APR-81 15:36")
+  (LAMBDA (s1 s2)                                            (* edited%: "22-APR-81 15:36")
     (APPEND (SetDifference s1 s2)
-           s2])
+           s2)))
 
 (Shorten
-  [LAMBDA (A)                                                (* edited%: " 1-May-81 00:32")
-    (CAR (UNPACK A])
+  (LAMBDA (A)                                                (* edited%: " 1-May-81 00:32")
+    (CAR (UNPACK A))))
 
 (SibSlots
-  [LAMBDA (s)                                                (* edited%: "11-MAR-81 13:26")
+  (LAMBDA (s)                                                (* edited%: "11-MAR-81 13:26")
     (MapUnion (SuperSlots s)
-           'SubSlots])
+           'SubSlots)))
 
 (Sibs
-  [LAMBDA (u)                                                (* edited%: " 9-APR-81 13:47")
-    (Examples (MostSpecific (APPEND (IsA u])
+  (LAMBDA (u)                                                (* edited%: " 9-APR-81 13:47")
+    (Examples (MostSpecific (APPEND (IsA u))))))
 
 (SlotNames
-  [LAMBDA (u)                                                (* edited%: "23-FEB-81 14:16")
+  (LAMBDA (u)                                                (* edited%: "23-FEB-81 14:16")
     (SUBSET (PROPNAMES u)
            (FUNCTION (LAMBDA (S)
-                       (NOT (MEMB S SYSPROPS])
+                       (NOT (MEMB S SYSPROPS)))))))
 
 (SlotSubst
-  [LAMBDA (N NOLD L)                                         (* edited%: "18-MAR-81 15:44")
+  (LAMBDA (N NOLD L)                                         (* edited%: "18-MAR-81 15:44")
     (COND
        ((NULL L)
         NIL)
        (T (CONS (CAR L)
                 (CONS (SUBST N NOLD (CADR L))
-                      (SlotSubst N NOLD (CDDR L])
+                      (SlotSubst N NOLD (CDDR L))))))))
 
 (Slotp
-  [LAMBDA (s)                                                (* edited%: "23-Mar-81 16:46")
+  (LAMBDA (s)                                                (* edited%: "23-Mar-81 16:46")
     (DoesIntersect '(Slot CriterialSlot NonCriterialSlot)
-           (GETPROP s 'IsA])
+           (GETPROP s 'IsA))))
 
 (SmartPACK*
-  [LAMBDA U                                              (* ; "Edited 29-Nov-2023 09:15 by seveno4")
+  (LAMBDA U                                              (* ; "Edited 29-Nov-2023 09:15 by seveno4")
                                                              (* edited%: " 1-May-81 01:23")
     (OR (AND (IGEQ (for ti from 1 to U sum (NCHARS (ARG U ti)))
                    100)
-             [SETQ ShorterNam (APPLY 'SmartPACK* (for ti from 1 to U
-                                                    collect (Shorten (ARG U ti]
+             (SETQ ShorterNam (APPLY 'SmartPACK* (for ti from 1 to U
+                                                    collect (Shorten (ARG U ti)))))
              (SELECTQ (IQUOTIENT Verbosity 20)
                  (0 T)
                  (1 (PRIN1 0 TAB "Oh, those long names!  I just had to shorten one." CRLF))
@@ -2288,11 +2288,11 @@ Should I continue with another pass? ")
                                                              TTY))
                                " to ")
                         ShorterNam CRLF)))
-        (APPLY 'OldPACK* (for ti from 1 to U collect (ARG U ti])
+        (APPLY 'OldPACK* (for ti from 1 to U collect (ARG U ti))))))
 
 (Snazzy
-  [LAMBDA NIL                                            (* ; "Edited 29-Nov-2023 07:12 by seveno4")
-    [SETQ InfoW (CREATEW '(10 10 618 335]
+  (LAMBDA NIL                                            (* ; "Edited 29-Nov-2023 07:12 by seveno4")
+    (SETQ InfoW (CREATEW '(10 10 618 335)))
     (WINDOWPROP InfoW 'RESHAPEFN 'DON'T)
     (DSPFILL '(0 300 610 25)
            GRAYSHADE NIL InfoW)
@@ -2361,10 +2361,10 @@ Should I continue with another pass? ")
     (DSPLEFTMARGIN 0 BitAgenda)
     (DSPRIGHTMARGIN 190 BitAgenda)
     (SETQ BAList (for nts from 1 to 10 collect BitAgenda))
-    (SnazzyAgenda])
+    (SnazzyAgenda)))
 
 (SnazzyAgenda
-  [LAMBDA NIL                                            (* ; "Edited 29-Nov-2023 07:22 by seveno4")
+  (LAMBDA NIL                                            (* ; "Edited 29-Nov-2023 07:22 by seveno4")
     (DSPFILL NIL NIL NIL BitAgenda)
     (DSPXPOSITION 2 BitAgenda)
     (DSPYPOSITION 280 BitAgenda)
@@ -2381,10 +2381,10 @@ Should I continue with another pass? ")
        ((BOUNDP 'Agenda)
         (PRIN1 "THE AGENDA IS NOW EMPTY" BitAgenda))
        (T (PRIN1 "THE AGENDA HAS NOT YET BEEN INITIALIZED, EVEN!" BitAgenda)))
-    (BITBLT BitAgenda 0 0 InfoW 406 0])
+    (BITBLT BitAgenda 0 0 InfoW 406 0)))
 
 (SnazzyConcept
-  [LAMBDA (forceflg u)                                   (* ; "Edited 29-Nov-2023 07:21 by seveno4")
+  (LAMBDA (forceflg u)                                   (* ; "Edited 29-Nov-2023 07:21 by seveno4")
     (AND (NULL u)
          (BOUNDP 'CurUnit)
          (SETQ u CurUnit))
@@ -2399,10 +2399,10 @@ Should I continue with another pass? ")
              (u (SETQ LastUSnazzed u)
                 (PU2 u BitConcept))
              (T (PRIN1 "NO CURRENT CONCEPT YET" BitConcept)))
-          (BITBLT BitConcept 0 0 InfoW 2 0])
+          (BITBLT BitConcept 0 0 InfoW 2 0)))))
 
 (SnazzyHeuristic
-  [LAMBDA (r)                                            (* ; "Edited 29-Nov-2023 07:21 by seveno4")
+  (LAMBDA (r)                                            (* ; "Edited 29-Nov-2023 07:21 by seveno4")
     (DSPFILL NIL NIL NIL BitHeuristic)
     (DSPXPOSITION 2 BitHeuristic)
     (DSPYPOSITION 105 BitHeuristic)
@@ -2415,10 +2415,10 @@ Should I continue with another pass? ")
                  BitHeuristic)
           (PRIN1 CRLF BitHeuristic))
        (T (PRIN1 "NO CURRENT HEURISTIC NOW" BitHeuristic)))
-    (BITBLT BitHeuristic 0 0 InfoW 206 0])
+    (BITBLT BitHeuristic 0 0 InfoW 206 0)))
 
 (SnazzyTask
-  [LAMBDA (tsk)                                          (* ; "Edited 29-Nov-2023 07:22 by seveno4")
+  (LAMBDA (tsk)                                          (* ; "Edited 29-Nov-2023 07:22 by seveno4")
     (DSPFILL NIL NIL NIL BitTask)
     (DSPXPOSITION 2 BitTask)
     (DSPYPOSITION 126 BitTask)
@@ -2439,14 +2439,14 @@ Should I continue with another pass? ")
                    BitTask)
             (PRINBOL 'SlotToWorkOn (ExtractSlotName tsk)
                    BitTask)
-            [MAPC (CurSup tsk)
+            (MAPC (CurSup tsk)
                   (FUNCTION (LAMBDA (sp)
                               (PRINBOL (CAR sp)
                                      (COND
                                         ((NULL (CDDR sp))
                                          (CADR sp))
                                         (T (CDR sp)))
-                                     BitTask]
+                                     BitTask))))
             (SELECTQ (LENGTH (ExtractReasons tsk))
                 (0 NIL)
                 (1 (PRINBOL 'Reason (CAR (ExtractReasons tsk))
@@ -2456,58 +2456,58 @@ Should I continue with another pass? ")
                        (ExtractReasons tsk)
                        BitTask T)))
        (T (PRIN1 "NO CURRENT TASK NOW" BitTask)))
-    (BITBLT BitTask 0 0 InfoW 206 154])
+    (BITBLT BitTask 0 0 InfoW 206 154)))
 
 (SomeOPair
-  [LAMBDA (L Rel v)                                          (* edited%: "24-Apr-81 01:48")
+  (LAMBDA (L Rel v)                                          (* edited%: "24-Apr-81 01:48")
     (COND
        ((ILESSP (LENGTH L)
                2)
         NIL)
-       ([SOME (CDR L)
+       ((SOME (CDR L)
               (FUNCTION (LAMBDA (L2)
                           (AND (SETQ v (APPLY* Rel (CAR L)
                                               L2))
-                               (SETQ v (LIST L2 v]
+                               (SETQ v (LIST L2 v))))))
         (CONS (L L1)
               v))
        (T (SomePair (CDR L)
-                 Rel])
+                 Rel)))))
 
 (SomePair
-  [LAMBDA (L Rel)                                            (* edited%: "24-Apr-81 01:48")
+  (LAMBDA (L Rel)                                            (* edited%: "24-Apr-81 01:48")
     (OR (SomeOPair L Rel)
         (SomeOPair (REVERSE L)
-               Rel])
+               Rel))))
 
 (SomeUneliminated
-  [LAMBDA NIL                                                (* edited%: "27-Mar-81 21:19")
+  (LAMBDA NIL                                                (* edited%: "27-Mar-81 21:19")
     (SOME Units (FUNCTION (LAMBDA (u)
-                            (OR [SOME SlotsToElimInitially (FUNCTION (LAMBDA (s)
-                                                                       (GETPROP u s]
+                            (OR (SOME SlotsToElimInitially (FUNCTION (LAMBDA (s)
+                                                                       (GETPROP u s))))
                                 (SOME (ElimSlots u)
                                       (FUNCTION (LAMBDA (s)
-                                                  (GETPROP u s])
+                                                  (GETPROP u s))))))))))
 
 (SortByWorths
-  [LAMBDA (L)                                                (* edited%: "10-MAR-81 16:55")
-    (SORT L 'LessWorth])
+  (LAMBDA (L)                                                (* edited%: "10-MAR-81 16:55")
+    (SORT L 'LessWorth)))
 
 (Specializations
-  [LAMBDA (u)                                                (* edited%: "19-FEB-81 16:36")
-    (SelfIntersect (NCONC [MAPCONC (GETPROP 'Specializations 'SubSlots)
+  (LAMBDA (u)                                                (* edited%: "19-FEB-81 16:36")
+    (SelfIntersect (NCONC (MAPCONC (GETPROP 'Specializations 'SubSlots)
                                  (FUNCTION (LAMBDA (ss)
-                                             (APPEND (GETPROP u ss]
-                          (GETPROP u 'Specializations])
+                                             (APPEND (GETPROP u ss)))))
+                          (GETPROP u 'Specializations)))))
 
 (Specialize1LispExpr
-  [LAMBDA (bod tmp tmp2 fbod)                                (* edited%: "20-Mar-81 00:15")
+  (LAMBDA (bod tmp tmp2 fbod)                                (* edited%: "20-Mar-81 00:15")
 
          (* AreUnits is the list of units mentioned in bod ;
          HaveSpec are those which have specializations already)
 
     (COND
-       ([SETQ tmp2 (RandomChoose (Specializations
+       ((SETQ tmp2 (RandomChoose (Specializations
                                   (SETQ tmp (RandomChoose
                                              (SETQ HaveSpec
                                               (UNION (SUBSET (SETQ AreUnits
@@ -2515,60 +2515,60 @@ Should I continue with another pass? ")
                                                                                   (Flatten bod)))
                                                                      'Unitp))
                                                             'Specializations)
-                                                     HaveSpec]
+                                                     HaveSpec)))))))
         (SETQ UDiff (LIST tmp RArrow tmp2))
         (RandomSubst tmp2 tmp bod))
-       ([SETQ tmp2 (SpecializeNumber (SETQ tmp (RandomChoose (SUBSET (SelfIntersect fbod)
-                                                                    'NUMBERP]
+       ((SETQ tmp2 (SpecializeNumber (SETQ tmp (RandomChoose (SUBSET (SelfIntersect fbod)
+                                                                    'NUMBERP)))))
         (SETQ UDiff (LIST tmp RArrow tmp2))
         (RandomSubst tmp2 tmp bod))
-       (T bod])
+       (T bod))))
 
 (Specialize1LispFn
-  [LAMBDA (bod)                                              (* edited%: "18-MAR-81 12:01")
-    (Specialize1LispExpr bod])
+  (LAMBDA (bod)                                              (* edited%: "18-MAR-81 12:01")
+    (Specialize1LispExpr bod)))
 
 (Specialize1LispPred
-  [LAMBDA (bod tmp tmp2)                                     (* edited%: "18-MAR-81 12:02")
-    (Specialize1LispExpr bod])
+  (LAMBDA (bod tmp tmp2)                                     (* edited%: "18-MAR-81 12:02")
+    (Specialize1LispExpr bod)))
 
 (SpecializeBit
-  [LAMBDA (b)                                                (* edited%: "28-Feb-81 17:22")
-    (NOT b])
+  (LAMBDA (b)                                                (* edited%: "28-Feb-81 17:22")
+    (NOT b)))
 
 (SpecializeCompiledLispCode
-  [LAMBDA (X)                                                (* edited%: " 4-MAR-81 16:08")
-    X])
+  (LAMBDA (X)                                                (* edited%: " 4-MAR-81 16:08")
+    X))
 
 (SpecializeDataType
-  [LAMBDA (x tmp)                                            (* edited%: " 6-MAR-81 16:03")
+  (LAMBDA (x tmp)                                            (* edited%: " 6-MAR-81 16:03")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeDataType Z))
-                                 (T Z]
+                                 (T Z))))))
        ((SETQ tmp (RandomChoose (Specializations x)))
         (SETQ UDiff (LIST x RArrow tmp))
         tmp)
-       (T x])
+       (T x))))
 
 (SpecializeDottedPair
-  [LAMBDA (x)                                                (* edited%: " 1-APR-81 14:36")
-    x])
+  (LAMBDA (x)                                                (* edited%: " 1-APR-81 14:36")
+    x))
 
 (SpecializeIOPair
-  [LAMBDA (x)                                                (* edited%: " 2-MAR-81 18:20")
+  (LAMBDA (x)                                                (* edited%: " 2-MAR-81 18:20")
 
          (* eventually%: look thru the (i o) pairs, and make a few new ones, with i's 
          selected from the set of i's, and o's similarly --
          or select from examples of things which i and o are examples of)
 
-    x])
+    x))
 
 (SpecializeLispFn
-  [LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:33")
+  (LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:33")
 
          (* presumed to be given either the name of a predicate, or a list of the form
          (LAMBDA --))
@@ -2578,26 +2578,26 @@ Should I continue with another pass? ")
         (SpecializeNumber x))
        ((LITATOM x)
         (COND
-           [(Specializations x)
-            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Specializations x]
+           ((Specializations x)
+            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Specializations x))))))
            (T x)))
        ((NLISTP x)
         x)
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeLispFn Z))
-                                 (T Z]
-       [(EQ (CAR x)
+                                 (T Z))))))
+       ((EQ (CAR x)
             'LAMBDA)
         (CONS 'LAMBDA (CONS (CADR x)
                             (MAPCAR (CDDR x)
-                                   'Specialize1LispFn]
-       (T x])
+                                   'Specialize1LispFn))))
+       (T x))))
 
 (SpecializeLispPred
-  [LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:33")
+  (LAMBDA (x)                                                (* edited%: " 3-Apr-81 00:33")
 
          (* presumed to be given either the name of a predicate, or a list of the form
          (LAMBDA --))
@@ -2607,115 +2607,115 @@ Should I continue with another pass? ")
         (SpecializeNumber x))
        ((LITATOM x)
         (COND
-           [(Specializations x)
-            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Specializations x]
+           ((Specializations x)
+            (CADDR (SETQ UDiff (LIST x RArrow (RandomChoose (Specializations x))))))
            (T x)))
        ((NLISTP x)
         x)
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeLispPred Z))
-                                 (T Z]
-       [(EQ (CAR x)
+                                 (T Z))))))
+       ((EQ (CAR x)
             'LAMBDA)
         (CONS 'LAMBDA (CONS (CADR x)
                             (MAPCAR (CDDR x)
-                                   'Specialize1LispPred]
-       (T x])
+                                   'Specialize1LispPred))))
+       (T x))))
 
 (SpecializeList
-  [LAMBDA (x)                                                (* edited%: "25-FEB-81 17:12")
+  (LAMBDA (x)                                                (* edited%: "25-FEB-81 17:12")
     (COND
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeList Z))
-                                 (T Z]
+                                 (T Z))))))
        (T (SETQ UDiff (LIST 'Eliminated%:))
           (SUBSET x (FUNCTION (LAMBDA (R)
                                 (COND
                                    ((RandomP)
                                     (NCONC1 UDiff R)
                                     NIL)
-                                   (T T])
+                                   (T T)))))))))
 
 (SpecializeNIL
-  [LAMBDA (X)                                                (* edited%: "23-FEB-81 14:51")
-    (WARNING (CONS X " can't be specialized if it doesn't have a known DataType! "])
+  (LAMBDA (X)                                                (* edited%: "23-FEB-81 14:51")
+    (WARNING (CONS X " can't be specialized if it doesn't have a known DataType! "))))
 
 (SpecializeNumber
-  [LAMBDA (x)                                                (* edited%: "26-Feb-81 15:29")
+  (LAMBDA (x)                                                (* edited%: "26-Feb-81 15:29")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeNumber Z))
-                                 (T Z]
-       [(FIXP x)
-        (CADDR (SETQ UDiff (LIST x RArrow (RAND 1 x]
-       [(NUMBERP x)
+                                 (T Z))))))
+       ((FIXP x)
+        (CADDR (SETQ UDiff (LIST x RArrow (RAND 1 x)))))
+       ((NUMBERP x)
         (CADDR (SETQ UDiff (LIST x RArrow (QUOTIENT (RAND 0 (FIX (TIMES x 200)))
-                                                 200.0]
-       (T NIL])
+                                                 200.0)))))
+       (T NIL))))
 
 (SpecializeSlot
-  [LAMBDA (x tmp)                                            (* edited%: "25-FEB-81 17:27")
+  (LAMBDA (x tmp)                                            (* edited%: "25-FEB-81 17:27")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeSlot Z))
-                                 (T Z]
+                                 (T Z))))))
        ((SETQ tmp (RandomChoose (Specializations x)))
         (SETQ UDiff (LIST x RArrow tmp))
         tmp)
-       (T x])
+       (T x))))
 
 (SpecializeText
-  [LAMBDA (x)                                                (* edited%: "25-FEB-81 17:26")
+  (LAMBDA (x)                                                (* edited%: "25-FEB-81 17:26")
     (COND
-       [(LISTP (CAR x))
+       ((LISTP (CAR x))
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeText Z))
-                                 (T Z]
+                                 (T Z))))))
        (T (SETQ UDiff (LIST 'Eliminated%:))
           (SUBSET x (FUNCTION (LAMBDA (R)
                                 (COND
                                    ((RandomP)
                                     (NCONC1 UDiff R)
                                     NIL)
-                                   (T T])
+                                   (T T)))))))))
 
 (SpecializeUnit
-  [LAMBDA (x tmp)                                            (* edited%: "25-FEB-81 17:27")
+  (LAMBDA (x tmp)                                            (* edited%: "25-FEB-81 17:27")
     (COND
-       [(LISTP x)
+       ((LISTP x)
         (MAPCAR x (FUNCTION (LAMBDA (Z)
                               (COND
                                  ((RandomP)
                                   (SpecializeUnit Z))
-                                 (T Z]
+                                 (T Z))))))
        ((SETQ tmp (RandomChoose (Specializations x)))
         (SETQ UDiff (LIST x RArrow tmp))
         tmp)
-       (T x])
+       (T x))))
 
 (StrongUnsaveDef
-  [LAMBDA (F)                                                (* edited%: " 2-MAR-81 15:46")
+  (LAMBDA (F)                                                (* edited%: " 2-MAR-81 15:46")
     (COND
        ((EQ 'nothing (CAR (UNSAVEDEF F)))
         (CAR (LOADDEF F)))
-       (T F])
+       (T F))))
 
 (TakingTooLong
-  [LAMBDA (j WhenToCheck MaxRealTime)                        (* edited%: "24-Mar-81 17:51")
+  (LAMBDA (j WhenToCheck MaxRealTime)                        (* edited%: "24-Mar-81 17:51")
     (COND
        ((LEQ j 1)
         (SETQ MapCycleTime (CLOCK 0))
@@ -2726,10 +2726,10 @@ Should I continue with another pass? ")
                    MaxRealTime))
         (CPRIN1 56 " Hmmm...   this is taking too long!  On to better things!" CRLF)
         T)
-       (T NIL])
+       (T NIL))))
 
 (TakingTooMuchSpace
-  [LAMBDA (j WhenToCheck MaxSpace u s)                       (* edited%: "24-Mar-81 17:51")
+  (LAMBDA (j WhenToCheck MaxSpace u s)                       (* edited%: "24-Mar-81 17:51")
     (COND
        ((LEQ j 1)
         NIL)
@@ -2738,38 +2738,38 @@ Should I continue with another pass? ")
                    MaxSpace))
         (CPRIN1 56 " Grumble...   this is taking too much space!  On to less expansive things!" CRLF)
         T)
-       (T NIL])
+       (T NIL))))
 
 (TheFirstOf
-  [LAMBDA (X Y)                                              (* edited%: "18-MAR-81 15:52")
-    X])
+  (LAMBDA (X Y)                                              (* edited%: "18-MAR-81 15:52")
+    X))
 
 (TheNumberOf
-  [LAMBDA (L F N)                                            (* edited%: "23-Mar-81 16:02")
+  (LAMBDA (L F N)                                            (* edited%: "23-Mar-81 16:02")
     (SETQ N 0)
-    [MAPC L (FUNCTION (LAMBDA (X)
+    (MAPC L (FUNCTION (LAMBDA (X)
                         (COND
                            ((APPLY* F X)
                             (SETQ N (ADD1 N)))
-                           (T NIL]
-    N])
+                           (T NIL)))))
+    N))
 
 (TheSecondOf
-  [LAMBDA (X Y)                                              (* edited%: "18-MAR-81 16:58")
-    Y])
+  (LAMBDA (X Y)                                              (* edited%: "18-MAR-81 16:58")
+    Y))
 
 (TinyReward
-  [LAMBDA (u)                                                (* edited%: "18-MAR-81 12:07")
-    (PUT u 'Worth (ADD1 (Worth u])
+  (LAMBDA (u)                                                (* edited%: "18-MAR-81 12:07")
+    (PUT u 'Worth (ADD1 (Worth u)))))
 
 (TrueIfItExists
-  [LAMBDA (s)                                                (* edited%: "15-FEB-81 15:40")
+  (LAMBDA (s)                                                (* edited%: "15-FEB-81 15:40")
 
          (* This is an aux fn of rule interpreters.
          We assume that the interpreter is being run on a rule called r, which is to be 
          applied to a unit ArgU)
 
-    ([LAMBDA (z)
+    ((LAMBDA (z)
        (COND
           ((NULL z))
           ((ILESSP Verbosity 80)
@@ -2791,11 +2791,11 @@ Should I continue with another pass? ")
            (PRIN1 " didn't hold for ")
            (PRIN1 ArgU)
            (TERPRI)
-           NIL]
-     (APPLY* s r])
+           NIL)))
+     (APPLY* s r))))
 
 (UnGet
-  [LAMBDA (flag)                                             (* edited%: " 3-MAR-81 16:41")
+  (LAMBDA (flag)                                             (* edited%: " 3-MAR-81 16:41")
                                                              (* One can call this on units by 
                                                              saying, say, (UnGet (MAPCAR Units
                                                              (QUOTE GETPROPLIST))))
@@ -2809,7 +2809,7 @@ Should I continue with another pass? ")
              (T NIL))
           (FUNCTION (LAMBDA (F)
                       (MAPC (PROG (tmp)
-                                  [SETQ tmp (ListsStarting 'GETPROP (COND
+                                  (SETQ tmp (ListsStarting 'GETPROP (COND
                                                                        ((CCODEP F)
                                                                         (StrongUnsaveDef F)
                                                                         (GETD F))
@@ -2818,43 +2818,44 @@ Should I continue with another pass? ")
                                                                         F)
                                                                        (T (WARNING 
                       "In the process of UnGet-ting, found a function which was not an EXPR or SUBR!"
-                                                                                 ]
-                                  [COND
-                                     (tmp ([LAMBDA (FF)
+                                                                                 )))))
+                                  (COND
+                                     (tmp ((LAMBDA (FF)
                                              (AND (LITATOM F)
                                                   (MARKASCHANGED F))
                                              (COND
                                                 (FF (CPRIN1 20 FF " ")
                                                     (CPRIN1 40 "(" (LENGTH tmp)
-                                                           " changes.);   "]
+                                                           " changes.);   "))))
                                            (COND
                                               ((LITATOM F)
                                                F)
-                                              [(CAR (SOME Units (FUNCTION (LAMBDA (u)
-                                                                            (EQ F (GETPROPLIST u]
-                                              (T NIL]
+                                              ((CAR (SOME Units (FUNCTION (LAMBDA (u)
+                                                                            (EQ F (GETPROPLIST u)))))
+                                                    ))
+                                              (T NIL)))))
                                   (RETURN tmp))
-                            'DreplaceGet])
+                            'DreplaceGet))))))
 
 (UnionProp
-  [LAMBDA (A P V flag Kidding)                               (* edited%: "26-APR-81 18:16")
+  (LAMBDA (A P V flag Kidding)                               (* edited%: "26-APR-81 18:16")
     (OR Kidding (MEMBER V (APPLY* P A))
         (EQ 'Failed (CAR (LAST V)))
-        (ADDPROP A P V flag])
+        (ADDPROP A P V flag))))
 
 (UnionPropL
-  [LAMBDA (A P V flag Kidding)                               (* edited%: "26-APR-81 18:16")
+  (LAMBDA (A P V flag Kidding)                               (* edited%: "26-APR-81 18:16")
     (OR Kidding (MAPC V (FUNCTION (LAMBDA (x)
-                                    (UnionProp A P x flag])
+                                    (UnionProp A P x flag)))))))
 
 (Unitp
-  [LAMBDA (u)                                                (* edited%: "15-FEB-81 13:48")
+  (LAMBDA (u)                                                (* edited%: "15-FEB-81 13:48")
                                                              (* u is a unit iff it has a Worth 
                                                              property on its plist)
-    (Worth u])
+    (Worth u)))
 
 (WaxOn
-  [LAMBDA (task)                                             (* edited%: "23-Mar-81 10:22")
+  (LAMBDA (task)                                             (* edited%: "23-Mar-81 10:22")
     (LIST 'It 'is (Certainty (CAR task))
           (LIST (CAR task))
           'that
@@ -2866,7 +2867,7 @@ Should I continue with another pass? ")
           'be
           'worthwhile,
           'since%:
-          ([LAMBDA (re)
+          ((LAMBDA (re)
              (COND
                 ((NULL re)
                  '(no good reason))
@@ -2877,11 +2878,11 @@ Should I continue with another pass? ")
                        (SUB1 (LENGTH re))
                        'other
                        'reasons))
-                (T re]
-           (CADDDR task])
+                (T re)))
+           (CADDDR task)))))
 
 (WholeTask
-  [LAMBDA (u s sup L)                                        (* edited%: "23-Mar-81 09:36")
+  (LAMBDA (u s sup L)                                        (* edited%: "23-Mar-81 09:36")
 
          (* Find a task on the agenda L which is to work on slot s of unit u)
 
@@ -2889,10 +2890,10 @@ Should I continue with another pass? ")
                              (AND (EQ u (ExtractUnitName Z))
                                   (EQ s (ExtractSlotName Z))
                                   (EQUAL (ASSOC 'SlotToChange sup)
-                                         (ASSOC 'SlotToChange (CurSup Z])
+                                         (ASSOC 'SlotToChange (CurSup Z))))))))))
 
 (WorkOnTask
-  [LAMBDA (task ArgU TaskResults TimeThen)                   (* edited%: "18-MAY-81 14:33")
+  (LAMBDA (task ArgU TaskResults TimeThen)                   (* edited%: "18-MAY-81 14:33")
     (SETQ AbortTask? NIL)
     (SETQ TaskNum (ADD1 TaskNum))
     (COND
@@ -2920,7 +2921,7 @@ Should I continue with another pass? ")
          (SnazzyTask)
          (SnazzyAgenda)
          (SnazzyConcept T))
-    [OR [EVERY (SubSlots 'IfTaskParts)
+    (OR (EVERY (SubSlots 'IfTaskParts)
                (FUNCTION (LAMBDA (p)
                            (SETQ HeuristicAgenda (Examples 'Heuristic))
                            (PROG (r)
@@ -2936,7 +2937,7 @@ Should I continue with another pass? ")
                                      (GO HLOOP))
                                     ((SubsumedBy r)
                                      (GO HLOOP))
-                                    ([SELECTQ (APPLY* (APPLY* p r)
+                                    ((SELECTQ (APPLY* (APPLY* p r)
                                                      task)
                                          (AbortTask (PUT r 'NAborts (ADD1 (OR (NAborts r)
                                                                               0)))
@@ -2957,30 +2958,30 @@ Should I continue with another pass? ")
                                               (CPRIN1 68 
                                                   "	The Then Parts of the rule have been executed. 
 " CRLF)
-                                              [SETQ TimRec (OR (OverallRecord r)
-                                                               (PUT r 'OverallRecord (CONS 0 0]
+                                              (SETQ TimRec (OR (OverallRecord r)
+                                                               (PUT r 'OverallRecord (CONS 0 0))))
                                               (RPLACD TimRec (ADD1 (CDR TimRec)))
                                               (RPLACA TimRec (IPLUS (CAR TimRec)
-                                                                    TimeThen]
+                                                                    TimeThen))))
                                      (GO HLOOP))
                                     (T (GO HLOOP)))
-                                 (GO HLOOP]
-        (SETQ TaskResults (AddPropL TaskResults 'Termination 'Aborted]
+                                 (GO HLOOP)))))
+        (SETQ TaskResults (AddPropL TaskResults 'Termination 'Aborted)))
     (CPRIN1 64 " The results of this task were: " TaskResults CRLF)
     (CPRIN1 65 CRLF)
-    TaskResults])
+    TaskResults))
 
 (WorkOnUnit
-  [LAMBDA (U TaskResults)                                    (* edited%: "18-MAY-81 17:39")
+  (LAMBDA (U TaskResults)                                    (* edited%: "18-MAY-81 17:39")
     (SETQ TaskNum (ADD1 TaskNum))
     (AND (IsAlto)
-         (PROGN [SnazzyTask (LIST (Worth U)
+         (PROGN (SnazzyTask (LIST (Worth U)
                                   U
                                   'any
                                   (LIST '(There are no great tasks on the Agenda now)
                                         (CONS U
                                               '(has the highest Worth of any concept I haven't 
-                                                    focused on recently]
+                                                    focused on recently)))))
                 (SnazzyConcept T U)))
     (COND
        ((IGREATERP Verbosity 10)
@@ -2991,24 +2992,24 @@ Should I continue with another pass? ")
         (PRIN1 "Focusing on ")
         (PRIN1 U)
         (TERPRI)))
-    [MAPC (Examples 'Heuristic)
+    (MAPC (Examples 'Heuristic)
           (FUNCTION (LAMBDA (H)                              (* try to apply H to unit U)
-                      (APPLY* Interp H U]
+                      (APPLY* Interp H U))))
     (CPRIN1 65 CRLF)
     (AND TaskResults (CPRIN1 64 " The results of this task so far are: " TaskResults CRLF))
     (CPRIN1 65 CRLF)
     (AND (IsAlto)
          (SnazzyHeuristic NIL))
     (CycleThruAgenda)
-    U])
+    U))
 
 (WorthWorkingOn
-  [LAMBDA (task)                                             (* edited%: "18-MAR-81 12:21")
+  (LAMBDA (task)                                             (* edited%: "18-MAR-81 12:21")
     (IGEQ (ExtractPriority task)
-          MinPri])
+          MinPri)))
 
 (XeqIfItExists
-  [LAMBDA (s)                                                (* edited%: " 1-APR-81 13:56")
+  (LAMBDA (s)                                                (* edited%: " 1-APR-81 13:56")
 
          (* This is an aux fn of rule interpreters.
          We assume that the interpreter is being run on a rule called r, which is to be 
@@ -3017,57 +3018,57 @@ Should I continue with another pass? ")
          (* This function evaluates the s part of r, which is presumably a Then-
          part of some sort)
 
-    ([LAMBDA (z TimeX TimRec)
+    ((LAMBDA (z TimeX TimRec)
        (COND
           ((NULL z)
            T)
           ((MyTime '(APPLY* z ArgU)
                   'TimeX)
            (CPRIN1 80 TAB TAB "the " s " slot of " r " has been applied successfully to " ArgU CRLF)
-           [SETQ TimRec (OR (APPLY* (CAR (Record s))
+           (SETQ TimRec (OR (APPLY* (CAR (Record s))
                                    r)
                             (PUT r (CAR (Record s))
-                                 (CONS 0 0]
+                                 (CONS 0 0))))
            (RPLACD TimRec (ADD1 (CDR TimRec)))
            (RPLACA TimRec (IPLUS (CAR TimRec)
                                  TimeX))
            T)
-          (T [SETQ TimRec (OR (APPLY* (CAR (FailedRecord s))
+          (T (SETQ TimRec (OR (APPLY* (CAR (FailedRecord s))
                                      r)
                               (PUT r (CAR (FailedRecord s))
-                                   (CONS 0 0]
+                                   (CONS 0 0))))
              (RPLACD TimRec (ADD1 (CDR TimRec)))
              (RPLACA TimRec (IPLUS (CAR TimRec)
                                    TimeX))
              (CPRIN1 75 TAB TAB "the " s " slot of " r " was applied to " ArgU 
                     ", but for some reason it signalled a failure." CRLF)
-             NIL]
-     (APPLY* s r])
+             NIL)))
+     (APPLY* s r))))
 
 (YesNo
-  [LAMBDA (i prompt)                                         (* edited%: " 2-MAR-81 10:47")
+  (LAMBDA (i prompt)                                         (* edited%: " 2-MAR-81 10:47")
     (AND prompt (NULL i)
          (PRIN1 CRLF TTY)
          (PRIN1 prompt TTY)
          (PRIN1 " (Y or N): " TTY))
     (MEMB (OR i (RATOM TTY))
-          '(Y Yes YES y yes])
+          '(Y Yes YES y yes))))
 
 (ZeroRecords
-  [LAMBDA (H)                                                (* edited%: "28-APR-81 01:49")
+  (LAMBDA (H)                                                (* edited%: "28-APR-81 01:49")
                                                              (* remove all properties of the form 
                                                              ---Record)
-    [MAPC (Examples 'RecordSlots)
+    (MAPC (Examples 'RecordSlots)
           (FUNCTION (LAMBDA (S)
-                      (REMPROP H S]
-    '%.])
+                      (REMPROP H S))))
+    '%.))
 )
 
 (LOAD 'EURUNITS)
 
-[ADVISE 'EDITP 'BEFORE '(OR (STKPOS 'EU)
+(ADVISE 'EDITP 'BEFORE '(OR (STKPOS 'EU)
                             (PRIN1 "
-WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
+WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! ")))
 (DECLARE%: DOEVAL@COMPILE DONTCOPY
 
 (GLOBALVARS AbortTask? AddedSome Agenda AreUnits CRLF CSlot CSlotSibs CTask Conjectures CreditTo 
@@ -3082,9 +3083,9 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
 
 (SETQ SYSPROPS (UNION ESYSPROPS SYSPROPS))
 
-[AND (NULL (GETD 'OldPACK*))
+(AND (NULL (GETD 'OldPACK*))
      (PUTD 'OldPACK* (GETD 'PACK*))
-     (PUTD 'PACK* (GETD 'SmartPACK*]
+     (PUTD 'PACK* (GETD 'SmartPACK*)))
 
 (SETQ TTY T)
 
@@ -3098,66 +3099,66 @@ WARNING:  ARE YOU SURE YOU REALLY DON'T MEAN 'EU' ??? !!! "]
 (ADDTOVAR LAMA SmartPACK* CPRIN1)
 )
 (DECLARE%: DONTCOPY
-  (FILEMAP (NIL (14121 123926 (APPLYEVAL 14131 . 14258) (AddInv 14260 . 14683) (AddNN 14685 . 14822) (
-AddPropL 14824 . 15172) (Alg 15174 . 15404) (AllPairs 15406 . 15797) (ApplicArgs 15799 . 15915) (
-ApplicGenArgs 15917 . 16038) (ApplicGenBuild 16040 . 16161) (ApplicGenInit 16163 . 16282) (Apply-to-u 
-16284 . 16405) (ApplyAlg 16407 . 16542) (ApplyDefn 16544 . 16681) (ApplyRule 16683 . 17355) (Average 
-17357 . 17499) (AverageWorths 17501 . 17745) (BestChoose 17747 . 18025) (BestSubset 18027 . 18338) (
-CPRIN1 18340 . 18648) (CacheExamples 18650 . 18831) (Certainty 18833 . 19145) (Check2AfterEditp 19147
- . 19489) (CheckAfterEditp 19491 . 19984) (CheckElim 19986 . 20198) (CheckTheValues 20200 . 20420) (
-Comp 20422 . 20725) (ConsNN 20727 . 20872) (CreateUnit 20874 . 22298) (CurSup 22300 . 22422) (
-CycleThruAgenda 22424 . 22916) (DSPBOLD 22918 . 23200) (Date2 23202 . 23516) (
-DecrementCreditAssignment 23518 . 23670) (DefineIfSlot 23672 . 23891) (DefineSlot 23893 . 24466) (Defn
- 24468 . 24815) (DirectApplics 24817 . 25058) (Divides 25060 . 25188) (DoesIntersect 25190 . 25366) (
-DreplaceGet 25368 . 25709) (DwimUnionProp 25711 . 26687) (EU 26689 . 27695) (EVERY2 27697 . 27982) (
-EqualToWithinSubst 27984 . 28343) (Eurisko 28345 . 28794) (Examples 28796 . 29181) (ExtractInput 29183
- . 29301) (ExtractOutput 29303 . 29423) (ExtractPriority 29425 . 29548) (ExtractReasons 29550 . 29675)
- (ExtractSlotName 29677 . 29802) (ExtractUnitName 29804 . 29929) (FavorFirst 29931 . 30110) (FirstTwo 
-30112 . 30251) (Flatten 30253 . 30460) (FractionOf 30462 . 30879) (GatherExamples 30881 . 31278) (
-GenArgs 31280 . 31395) (GenBuild 31397 . 31512) (GenInit 31514 . 31627) (Generalizations 31629 . 31989
-) (Generalize1LispExpr 31991 . 33241) (Generalize1LispFn 33243 . 33384) (Generalize1LispPred 33386 . 
-33529) (GeneralizeBit 33531 . 33650) (GeneralizeCompiledLispCode 33652 . 33779) (GeneralizeDataType 
-33781 . 34259) (GeneralizeDottedPair 34261 . 34382) (GeneralizeIOPair 34384 . 34724) (GeneralizeLispFn
- 34726 . 35632) (GeneralizeLispPred 35634 . 36546) (GeneralizeList 36548 . 37344) (GeneralizeNIL 37346
- . 37537) (GeneralizeNumber 37539 . 38492) (GeneralizeSlot 38494 . 38964) (GeneralizeText 38966 . 
-39762) (GeneralizeUnit 39764 . 40234) (GetABag 40236 . 40355) (GetAList 40357 . 40614) (GetAOPair 
-40616 . 40747) (GetAOSet 40749 . 40884) (GetASet 40886 . 41020) (GetAStruc 41022 . 41270) (GoodChoose 
-41272 . 41566) (GoodSubset 41568 . 41705) (Half 41707 . 41825) (HasHighWorth 41827 . 42002) (ISQRT 
-42004 . 42121) (IndirectApplics 42123 . 42376) (InitialCheckInv 42378 . 44965) (InitialElimSlots 44967
- . 45279) (InitializeCreditAssignment 45281 . 45422) (InitializeEurisko 45424 . 48708) (InsideOf 48710
- . 48978) (Instances 48980 . 49211) (Interestingness 49213 . 50264) (Interp1 50266 . 50660) (Interp2 
-50662 . 52170) (Interp3 52172 . 53924) (Interrupts 53926 . 54947) (IsAKindOf 54949 . 55105) (IsAlto 
-55107 . 55265) (IsSubsetOf 55267 . 55444) (KillSlot 55446 . 56340) (KillUnit 56342 . 56954) (
-KnownApplic 56956 . 57171) (LEQNN 57173 . 57333) (LessWorth 57335 . 57579) (ListifyIfNec 57581 . 57726
-) (ListsStarting 57728 . 58015) (ListsStartingAux 58017 . 58307) (MAP2EVERY 58309 . 58748) (MAPAPPEND 
-58750 . 59001) (MAXIMUM 59003 . 60003) (MAXIMUM2 60005 . 60900) (Map&Print 60902 . 61083) (MapApplics 
-61085 . 63077) (MapExamples 63079 . 65093) (MapUnion 65095 . 65625) (MergeProps 65627 . 66996) (
-MergeTasks 66998 . 69660) (MoreSpecific 69662 . 70514) (MostSpecific 70516 . 70653) (MyTime 70655 . 
-70923) (NU 70925 . 72478) (NUnitp 72480 . 72599) (NearnessTo 72601 . 72938) (NewNam 72940 . 73248) (
-NoRepeatsIn 73250 . 73517) (OKBinPreds 73519 . 74361) (OrderTasks 74363 . 74511) (PRINBOL 74513 . 
-75169) (PRINDEN 75171 . 75297) (PRINTASK 75299 . 76376) (PU 76378 . 77142) (PU2 77144 . 82467) (
-Percentify 82469 . 82636) (PunishSeverely 82638 . 82804) (Quoted 82806 . 82967) (REM1PROP 82969 . 
-83254) (RandomChoose 83256 . 83521) (RandomP 83523 . 83645) (RandomPair 83647 . 83786) (RandomSubset 
-83788 . 84042) (RandomSubst 84044 . 84348) (RandomSubst* 84350 . 84702) (RepeatsIn 84704 . 84967) (
-ReportOn 84969 . 85920) (ResetPri 85922 . 86291) (RuleTakingTooLong 86293 . 86829) (RunAlg 86831 . 
-87895) (RunDefn 87897 . 88964) (SOME1 88966 . 89178) (SOS 89180 . 89571) (SQUARE 89573 . 89689) (START
- 89691 . 91026) (SelfIntersect 91028 . 91158) (SetDiff 91160 . 91523) (SetDifference 91525 . 91896) (
-SetIntersect 91898 . 92077) (SetUnion 92079 . 92230) (Shorten 92232 . 92353) (SibSlots 92355 . 92508) 
-(Sibs 92510 . 92652) (SlotNames 92654 . 92862) (SlotSubst 92864 . 93126) (Slotp 93128 . 93313) (
-SmartPACK* 93315 . 94462) (Snazzy 94464 . 96647) (SnazzyAgenda 96649 . 97346) (SnazzyConcept 97348 . 
-97963) (SnazzyHeuristic 97965 . 98546) (SnazzyTask 98548 . 100150) (SomeOPair 100152 . 100632) (
-SomePair 100634 . 100813) (SomeUneliminated 100815 . 101305) (SortByWorths 101307 . 101437) (
-Specializations 101439 . 101799) (Specialize1LispExpr 101801 . 103051) (Specialize1LispFn 103053 . 
-103194) (Specialize1LispPred 103196 . 103339) (SpecializeBit 103341 . 103460) (
-SpecializeCompiledLispCode 103462 . 103589) (SpecializeDataType 103591 . 104069) (SpecializeDottedPair
- 104071 . 104192) (SpecializeIOPair 104194 . 104534) (SpecializeLispFn 104536 . 105442) (
-SpecializeLispPred 105444 . 106356) (SpecializeList 106358 . 107018) (SpecializeNIL 107020 . 107211) (
-SpecializeNumber 107213 . 107808) (SpecializeSlot 107810 . 108280) (SpecializeText 108282 . 108942) (
-SpecializeUnit 108944 . 109414) (StrongUnsaveDef 109416 . 109617) (TakingTooLong 109619 . 110076) (
-TakingTooMuchSpace 110078 . 110476) (TheFirstOf 110478 . 110589) (TheNumberOf 110591 . 110905) (
-TheSecondOf 110907 . 111019) (TinyReward 111021 . 111159) (TrueIfItExists 111161 . 112030) (UnGet 
-112032 . 114507) (UnionProp 114509 . 114717) (UnionPropL 114719 . 114928) (Unitp 114930 . 115223) (
-WaxOn 115225 . 115940) (WholeTask 115942 . 116426) (WorkOnTask 116428 . 120401) (WorkOnUnit 120403 . 
-121593) (WorthWorkingOn 121595 . 121754) (XeqIfItExists 121756 . 123261) (YesNo 123263 . 123535) (
-ZeroRecords 123537 . 123924)))))
+  (FILEMAP (NIL (14182 125192 (APPLYEVAL 14192 . 14321) (AddInv 14323 . 14752) (AddNN 14754 . 14893) (
+AddPropL 14895 . 15247) (Alg 15249 . 15484) (AllPairs 15486 . 15883) (ApplicArgs 15885 . 16002) (
+ApplicGenArgs 16004 . 16126) (ApplicGenBuild 16128 . 16250) (ApplicGenInit 16252 . 16372) (Apply-to-u 
+16374 . 16496) (ApplyAlg 16498 . 16635) (ApplyDefn 16637 . 16776) (ApplyRule 16778 . 17452) (Average 
+17454 . 17597) (AverageWorths 17599 . 17844) (BestChoose 17846 . 18128) (BestSubset 18130 . 18448) (
+CPRIN1 18450 . 18761) (CacheExamples 18763 . 18947) (Certainty 18949 . 19263) (Check2AfterEditp 19265
+ . 19613) (CheckAfterEditp 19615 . 20119) (CheckElim 20121 . 20335) (CheckTheValues 20337 . 20557) (
+Comp 20559 . 20865) (ConsNN 20867 . 21014) (CreateUnit 21016 . 22449) (CurSup 22451 . 22575) (
+CycleThruAgenda 22577 . 23071) (DSPBOLD 23073 . 23357) (Date2 23359 . 23681) (
+DecrementCreditAssignment 23683 . 23837) (DefineIfSlot 23839 . 24058) (DefineSlot 24060 . 24640) (Defn
+ 24642 . 24998) (DirectApplics 25000 . 25246) (Divides 25248 . 25378) (DoesIntersect 25380 . 25560) (
+DreplaceGet 25562 . 25906) (DwimUnionProp 25908 . 26891) (EU 26893 . 27904) (EVERY2 27906 . 28194) (
+EqualToWithinSubst 28196 . 28557) (Eurisko 28559 . 29010) (Examples 29012 . 29404) (ExtractInput 29406
+ . 29525) (ExtractOutput 29527 . 29648) (ExtractPriority 29650 . 29774) (ExtractReasons 29776 . 29902)
+ (ExtractSlotName 29904 . 30030) (ExtractUnitName 30032 . 30158) (FavorFirst 30160 . 30342) (FirstTwo 
+30344 . 30485) (Flatten 30487 . 30697) (FractionOf 30699 . 31121) (GatherExamples 31123 . 31527) (
+GenArgs 31529 . 31645) (GenBuild 31647 . 31763) (GenInit 31765 . 31879) (Generalizations 31881 . 32248
+) (Generalize1LispExpr 32250 . 33512) (Generalize1LispFn 33514 . 33656) (Generalize1LispPred 33658 . 
+33802) (GeneralizeBit 33804 . 33924) (GeneralizeCompiledLispCode 33926 . 34053) (GeneralizeDataType 
+34055 . 34540) (GeneralizeDottedPair 34542 . 34663) (GeneralizeIOPair 34665 . 35005) (GeneralizeLispFn
+ 35007 . 35928) (GeneralizeLispPred 35930 . 36857) (GeneralizeList 36859 . 37667) (GeneralizeNIL 37669
+ . 37862) (GeneralizeNumber 37864 . 38835) (GeneralizeSlot 38837 . 39314) (GeneralizeText 39316 . 
+40124) (GeneralizeUnit 40126 . 40603) (GetABag 40605 . 40725) (GetAList 40727 . 40987) (GetAOPair 
+40989 . 41122) (GetAOSet 41124 . 41261) (GetASet 41263 . 41399) (GetAStruc 41401 . 41656) (GoodChoose 
+41658 . 41957) (GoodSubset 41959 . 42098) (Half 42100 . 42219) (HasHighWorth 42221 . 42398) (ISQRT 
+42400 . 42519) (IndirectApplics 42521 . 42780) (InitialCheckInv 42782 . 45432) (InitialElimSlots 45434
+ . 45753) (InitializeCreditAssignment 45755 . 45897) (InitializeEurisko 45899 . 49218) (InsideOf 49220
+ . 49493) (Instances 49495 . 49728) (Interestingness 49730 . 50793) (Interp1 50795 . 51191) (Interp2 
+51193 . 52706) (Interp3 52708 . 54466) (Interrupts 54468 . 55492) (IsAKindOf 55494 . 55653) (IsAlto 
+55655 . 55815) (IsSubsetOf 55817 . 55998) (KillSlot 56000 . 56906) (KillUnit 56908 . 57525) (
+KnownApplic 57527 . 57748) (LEQNN 57750 . 57912) (LessWorth 57914 . 58162) (ListifyIfNec 58164 . 58311
+) (ListsStarting 58313 . 58605) (ListsStartingAux 58607 . 58902) (MAP2EVERY 58904 . 59347) (MAPAPPEND 
+59349 . 59604) (MAXIMUM 59606 . 60614) (MAXIMUM2 60616 . 61518) (Map&Print 61520 . 61706) (MapApplics 
+61708 . 63731) (MapExamples 63733 . 65783) (MapUnion 65785 . 66319) (MergeProps 66321 . 67699) (
+MergeTasks 67701 . 70370) (MoreSpecific 70372 . 71237) (MostSpecific 71239 . 71377) (MyTime 71379 . 
+71651) (NU 71653 . 73222) (NUnitp 73224 . 73345) (NearnessTo 73347 . 73688) (NewNam 73690 . 74002) (
+NoRepeatsIn 74004 . 74275) (OKBinPreds 74277 . 75129) (OrderTasks 75131 . 75281) (PRINBOL 75283 . 
+75944) (PRINDEN 75946 . 76073) (PRINTASK 76075 . 77157) (PU 77159 . 77932) (PU2 77934 . 83306) (
+Percentify 83308 . 83476) (PunishSeverely 83478 . 83648) (Quoted 83650 . 83813) (REM1PROP 83815 . 
+84102) (RandomChoose 84104 . 84376) (RandomP 84378 . 84502) (RandomPair 84504 . 84645) (RandomSubset 
+84647 . 84905) (RandomSubst 84907 . 85213) (RandomSubst* 85215 . 85572) (RepeatsIn 85574 . 85841) (
+ReportOn 85843 . 86798) (ResetPri 86800 . 87175) (RuleTakingTooLong 87177 . 87715) (RunAlg 87717 . 
+88798) (RunDefn 88800 . 89884) (SOME1 89886 . 90101) (SOS 90103 . 90495) (SQUARE 90497 . 90614) (START
+ 90616 . 91953) (SelfIntersect 91955 . 92086) (SetDiff 92088 . 92456) (SetDifference 92458 . 92834) (
+SetIntersect 92836 . 93019) (SetUnion 93021 . 93173) (Shorten 93175 . 93298) (SibSlots 93300 . 93454) 
+(Sibs 93456 . 93602) (SlotNames 93604 . 93817) (SlotSubst 93819 . 94087) (Slotp 94089 . 94276) (
+SmartPACK* 94278 . 95433) (Snazzy 95435 . 97621) (SnazzyAgenda 97623 . 98321) (SnazzyConcept 98323 . 
+98941) (SnazzyHeuristic 98943 . 99525) (SnazzyTask 99527 . 101133) (SomeOPair 101135 . 101623) (
+SomePair 101625 . 101806) (SomeUneliminated 101808 . 102309) (SortByWorths 102311 . 102442) (
+Specializations 102444 . 102811) (Specialize1LispExpr 102813 . 104075) (Specialize1LispFn 104077 . 
+104219) (Specialize1LispPred 104221 . 104365) (SpecializeBit 104367 . 104487) (
+SpecializeCompiledLispCode 104489 . 104616) (SpecializeDataType 104618 . 105103) (SpecializeDottedPair
+ 105105 . 105226) (SpecializeIOPair 105228 . 105568) (SpecializeLispFn 105570 . 106491) (
+SpecializeLispPred 106493 . 107420) (SpecializeList 107422 . 108094) (SpecializeNIL 108096 . 108289) (
+SpecializeNumber 108291 . 108901) (SpecializeSlot 108903 . 109380) (SpecializeText 109382 . 110054) (
+SpecializeUnit 110056 . 110533) (StrongUnsaveDef 110535 . 110738) (TakingTooLong 110740 . 111199) (
+TakingTooMuchSpace 111201 . 111601) (TheFirstOf 111603 . 111714) (TheNumberOf 111716 . 112034) (
+TheSecondOf 112036 . 112148) (TinyReward 112150 . 112291) (TrueIfItExists 112293 . 113166) (UnGet 
+113168 . 115717) (UnionProp 115719 . 115929) (UnionPropL 115931 . 116145) (Unitp 116147 . 116441) (
+WaxOn 116443 . 117163) (WholeTask 117165 . 117657) (WorkOnTask 117659 . 121644) (WorkOnUnit 121646 . 
+122843) (WorthWorkingOn 122845 . 123005) (XeqIfItExists 123007 . 124522) (YesNo 124524 . 124798) (
+ZeroRecords 124800 . 125190)))))
 STOP
