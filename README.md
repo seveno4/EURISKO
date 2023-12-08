@@ -1,7 +1,5 @@
 # EURISKO
 
-Started work on a Common Lisp [port](https://github.com/seveno4/EURISKO/tree/cl)
-
 With the release of Doug Lenat's [archive](https://www.saildart.org/DBL) on Saildart, [White_Flame](https://white-flame.com/am-eurisko.html) and [aindilis](https://frdcsa.org/~andrewdo/WebWiki/Landing.html) discovered the source code of both AM and EURISKO. After some work I got EURISKO up and running on Medley Interlisp.
 
 # How to run
